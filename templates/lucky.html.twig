@@ -1,0 +1,10 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Magic number{% endblock %}
+
+{% block body %}
+    <h1>Magic number<hr></h1>
+    <p style="text-align: center">This is the current magic number: {{ number }}</p>
+    <h3>Your number is: {{ pic }}</h3>
+<img style="margin: auto; display: block" src="{{ asset('img/'~ pic ~'.png') }}" width="400" alt="Php-code">
+{% endblock %}

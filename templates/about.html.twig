@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+
+{% block title %}About{% endblock %}
+
+{% block body %}
+<h1>About<hr></h1>
+<div class="two-col-layout">
+    <aside class="aside">
+        <h4>Länkar:</h4>
+        <li><a href="https://github.com/dbwebb-se/mvc">MVC-kursens repo</a></li>
+        <li><a href="https://github.com/DaveGeorge81/mvc-vt23.git">Mitt repo</a></li>
+    </aside>
+    <main class="main">
+        <h2 style="text-align: center">MVC</h2>
+        <p>Den här kursen fokuserar på objektorienterade programmeringstekniker i språket PHP. Utöver klassiska
+        objektorienterade konstruktioner kommer kursen även arbeta med objektorienterad programmering i ett webbbaserat
+        ramverk där databasen har en central roll. Detta tillsammans med en blandning av HTML, CSS javascript och SQL.</p>
+
+        <p>Tanken är att man efter kursens slut ska kunna skapa en fullgod webbaplikation byggd med hjälp av objektorienterad
+        programmering och kunna hantera de verktyg och miljöer som används vid databasdrivna webbaplikationer i ett ramverk
+        för webbutveckling</p>
+        <img style="margin: auto; display: block" src="{{ asset('img/about.png') }}" width="400" alt="Php-code">
+</section>
+        </main>
+    </div>
+{% endblock %}
