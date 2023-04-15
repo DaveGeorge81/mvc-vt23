@@ -100,7 +100,7 @@ class __TwigTemplate_0b553117ac9abc5431418232ba9fa3cf extends Template
 
         <p>Tanken är att man efter kursens slut ska kunna skapa en fullgod webbaplikation byggd med hjälp av objektorienterad
         programmering och kunna hantera de verktyg och miljöer som används vid databasdrivna webbaplikationer i ett ramverk
-        för webbutveckling</p>
+        för webbutveckling </p>
         <img style=\"margin: auto; display: block\" src=\"";
         // line 22
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/about.png"), "html", null, true);
@@ -154,7 +154,7 @@ class __TwigTemplate_0b553117ac9abc5431418232ba9fa3cf extends Template
 
         <p>Tanken är att man efter kursens slut ska kunna skapa en fullgod webbaplikation byggd med hjälp av objektorienterad
         programmering och kunna hantera de verktyg och miljöer som används vid databasdrivna webbaplikationer i ett ramverk
-        för webbutveckling</p>
+        för webbutveckling </p>
         <img style=\"margin: auto; display: block\" src=\"{{ asset('img/about.png') }}\" width=\"400\" alt=\"Php-code\">
 </section>
         </main>

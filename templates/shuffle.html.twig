@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Shuffle{% endblock %}
+
+{% block body %}
+
+    {% for card in deckCards %}
+        <img src="{{ asset('img/cards/'~ card ~'.svg') }}" width="100px">
+    {% endfor %}
+
+
+{% endblock %}

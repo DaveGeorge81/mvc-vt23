@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Card{% endblock %}
+
+{% block body %}
+    <div><a href="{{ path('deck') }}">Sorted deck</a></div>
+    <div><a href="{{ path('shuffle') }}">Shuffle deck</a></div>
+    <div><a href="{{ path('draw') }}">Draw a single card</a></div>
+    <div><a href="{{ path('draw_many', {num: 5}) }}">Draw mulitple (5) cards</a></div>
+
+
+{% endblock %}

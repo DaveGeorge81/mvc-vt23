@@ -88,13 +88,17 @@ class __TwigTemplate_141f76152e244d508ab68bb244b927c3 extends Template
         echo "\">Kmom01</a>
                 <a href=\"";
         // line 23
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("card");
+        echo "\">Card</a>
+                <a href=\"";
+        // line 24
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("report");
         echo "\">Report</a>
         </nav>
         ";
-        // line 25
-        $this->displayBlock('body', $context, $blocks);
         // line 26
+        $this->displayBlock('body', $context, $blocks);
+        // line 27
         echo "        <footer> <p>Made by David Dahlgren &copy; 2023</p>
         <a href=\"https://github.com/DaveGeorge81/mvc-vt23.git\">GitHub</a></footer>
     </body>
@@ -173,7 +177,7 @@ class __TwigTemplate_141f76152e244d508ab68bb244b927c3 extends Template
 
     }
 
-    // line 25
+    // line 26
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -203,7 +207,7 @@ class __TwigTemplate_141f76152e244d508ab68bb244b927c3 extends Template
 
     public function getDebugInfo()
     {
-        return array (  177 => 25,  164 => 13,  154 => 12,  141 => 9,  131 => 8,  112 => 5,  98 => 26,  96 => 25,  91 => 23,  87 => 22,  83 => 21,  79 => 20,  75 => 19,  70 => 17,  66 => 15,  64 => 12,  61 => 11,  58 => 8,  53 => 5,  47 => 1,);
+        return array (  181 => 26,  168 => 13,  158 => 12,  145 => 9,  135 => 8,  116 => 5,  102 => 27,  100 => 26,  95 => 24,  91 => 23,  87 => 22,  83 => 21,  79 => 20,  75 => 19,  70 => 17,  66 => 15,  64 => 12,  61 => 11,  58 => 8,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -230,6 +234,7 @@ class __TwigTemplate_141f76152e244d508ab68bb244b927c3 extends Template
                 <a href=\"{{ path('about') }}\">About</a>
                 <a href=\"{{ path('lucky') }}\">Lucky</a>
                 <a href=\"{{ path('kmom01') }}\">Kmom01</a>
+                <a href=\"{{ path('card') }}\">Card</a>
                 <a href=\"{{ path('report') }}\">Report</a>
         </nav>
         {% block body %}{% endblock %}

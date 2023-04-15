@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Deck{% endblock %}
+
+{% block body %}
+{{ ms }}
+{{ numberOfCards }}
+    {% for card in deckCards %}
+        <img src="{{ asset('img/cards/'~ card ~'.svg') }}" width="100px">
+    {% endfor %}
+
+
+{% endblock %}

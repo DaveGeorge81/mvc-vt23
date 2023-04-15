@@ -1,0 +1,9 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Deck{% endblock %}
+
+{% block body %}
+{{ ms }}
+        <img src="{{ asset('img/cards/'~ deckCards ~'.svg') }}" width="100px">
+{{ include('flash.html.twig') }}
+{% endblock %}

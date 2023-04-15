@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Draw{% endblock %}
+
+{% block body %}
+
+    {# {% for card in deckCards %} #}
+        <img src="{{ asset('img/cards/'~ deckCards ~'.svg') }}" width="100px">
+    {# {% endfor %} #}
+
+Cards left: {{ numberOfCards }}
+{{ include('flash.html.twig') }}
+
+{% endblock %}

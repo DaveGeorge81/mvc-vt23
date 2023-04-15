@@ -21,11 +21,16 @@ return [
             [['_route' => 'app_mecontrollerjson_jsonnumber', '_controller' => 'App\\Controller\\MeControllerJson::jsonNumber'], null, null, null, false, false, null],
         ],
         '/api/quote' => [[['_route' => 'quote', '_controller' => 'App\\Controller\\MeControllerJson::quote'], null, null, null, false, false, null]],
+        '/api/card' => [[['_route' => 'apicard', '_controller' => 'App\\Controller\\MeControllerJson::card'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'home', '_controller' => 'App\\Controller\\MeControllerTwig::home'], null, null, null, false, false, null]],
         '/about' => [[['_route' => 'about', '_controller' => 'App\\Controller\\MeControllerTwig::about'], null, null, null, false, false, null]],
         '/lucky' => [[['_route' => 'lucky', '_controller' => 'App\\Controller\\MeControllerTwig::number'], null, null, null, false, false, null]],
         '/report' => [[['_route' => 'report', '_controller' => 'App\\Controller\\MeControllerTwig::report'], null, null, null, false, false, null]],
         '/kmom01' => [[['_route' => 'kmom01', '_controller' => 'App\\Controller\\MeControllerTwig::kmom01'], null, null, null, false, false, null]],
+        '/card' => [[['_route' => 'card', '_controller' => 'App\\Controller\\MeControllerTwig::card'], null, null, null, false, false, null]],
+        '/card/deck' => [[['_route' => 'deck', '_controller' => 'App\\Controller\\MeControllerTwig::deck'], null, null, null, false, false, null]],
+        '/card/deck/shuffle' => [[['_route' => 'shuffle', '_controller' => 'App\\Controller\\MeControllerTwig::shuffleCard'], null, null, null, false, false, null]],
+        '/card/deck/draw' => [[['_route' => 'draw', '_controller' => 'App\\Controller\\MeControllerTwig::drawCard'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
@@ -44,6 +49,7 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
+                .'|/card/deck/draw/(\\d+)(*:190)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -53,8 +59,9 @@ return [
         116 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
-        159 => [
-            [['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null],
+        159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
+        190 => [
+            [['_route' => 'draw_many', '_controller' => 'App\\Controller\\MeControllerTwig::drawMany'], ['num'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],
