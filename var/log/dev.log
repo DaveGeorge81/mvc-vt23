@@ -7286,3 +7286,6 @@
 [2023-04-16T21:08:56.757330+00:00] request.INFO: Matched route "deck". {"route":"deck","route_parameters":{"_route":"deck","_controller":"App\\Controller\\MeControllerTwig::deck"},"request_uri":"http://localhost:8888/card/deck","method":"GET"} []
 [2023-04-16T21:08:56.757869+00:00] security.DEBUG: Checking for authenticator support. {"firewall_name":"main","authenticators":0} []
 [2023-04-16T21:08:58.088291+00:00] request.INFO: Matched route "_wdt". {"route":"_wdt","route_parameters":{"_route":"_wdt","_controller":"web_profiler.controller.profiler::toolbarAction","token":"052be1"},"request_uri":"http://localhost:8888/_wdt/052be1","method":"GET"} []
+[2023-04-16T21:54:02.372965+00:00] request.INFO: Matched route "report". {"route":"report","route_parameters":{"_route":"report","_controller":"App\\Controller\\MeControllerTwig::report"},"request_uri":"http://localhost:8888/report","method":"GET"} []
+[2023-04-16T21:54:02.374666+00:00] security.DEBUG: Checking for authenticator support. {"firewall_name":"main","authenticators":0} []
+[2023-04-16T21:54:02.602285+00:00] request.INFO: Matched route "_wdt". {"route":"_wdt","route_parameters":{"_route":"_wdt","_controller":"web_profiler.controller.profiler::toolbarAction","token":"8f28e8"},"request_uri":"http://localhost:8888/_wdt/8f28e8","method":"GET"} []

@@ -45,7 +45,33 @@
 
         <hr>
         <h2 id="kmom02">kmom02</h2>
-        <p>Här kommer redovisningstexten för detta kursmoment.</p>
+        <p>Den här veckan har vi jobbat vidare med klasser i php. Vi har skapat en kortlek med lite olika funktioner. Jag tyckte egentligen inte det var så svårt att greppa,
+        men det tog väldigt lång tid att komma igång och jag gjorde det nog initialt betydligt svårare än vad som hade behövts.</p>
+
+        <p>Arv, interface, composition och trait var mestadels nytt för mig. Vi har pratat om arv i oopython och composition så det kände jag mig ändå lite bekant med. Arv är 
+        när man skapar en klass som tar allt som klassen den ärver av, men kan lägga till vissa saker utan att det påverkar själva huvudklassen. I mitt fall gjorde jag ett arv
+        på Card-klassen när jag skapade CardGraphic. I CardGraphic la jag till en array där kortets värde kan kopplas till en specifik bild. Composition är som ett beroende. Att den
+        ena klassen inte kan existera utan den andra. Här valde jag att låta både DeckOfCards och CardHand vara sådana konstruktioner. En kortlek kan inte finnas om det inte finns några kort
+        och en hand med kort kan inte heller den finnas om det inte finns några kort. Interface var nytt för mig och jag kom inte riktigt på hur jag skulle implementera det i mina klasser. Men
+        man kan i alla fall säga att ett interface är en typ samling av metoder en klass ska innehålla, men inte hur de ska implementeras. Som jag förstod det så innebär detta t ex att jag inte 
+        hade behövt hårdkoda CardGraphic i min DeckOfCards, utan att man kan göra det mer flexibelt med interface. Som jag skrev fick jag aldrig ritkigt ihop koden med interface, så jag fick nöja
+        mig med att hårdkoda denna gång. Trait är något som gör att en klass kan återanväda kod från ett trait utan att behöva implemetera det i själva metoden. Detta används ofta i språk där
+        klasser inte kan ärva från mer än en klass. Även detta var något jag inte riktigt fick koll på exakt hur jag skulle göra, utan tänker att jag kanske får återkomma till det i senare kursmoment.</p>
+
+        <p>Som jag skrev i början av texten hade jag väldigt svårt att komma igång med detta. Det var svårt att veta exakt var jag skulle börja när det var såpass öppna instruktioner. Jag började i alla fall
+        med att skapa klassen Card, och därefter CardGraphic, CardHand och DeckOfCards. Det tog mig ganska lång tid att komma underfund med hur jag skulle göra för att skapa kortleken så att alla kort fanns med.
+        När den väl var skapad kom nästa stora problem. Att ta bort kort från leken. Initialt gjorde jag det rätt mycket mer komplicerat än vad det behövde vara. Jag hade numrerat alla kort, och tänkt att jag då
+        slumpar fram ett nummer mellan 0-51 och tar bort kortet med det numret. För att inte samma kort skulle försöka tas bort mer än en gång la jag varje draget nummer i en array som "random" sen exkluderade.
+        Jag märkte dock att detta ibland genererade ett null-värde. Efter åtskilliga timmars felsökning utan framgång kom jag på att det var mycket enklare att bara blanda leken och ta bort de översta korten. Denna
+        metod gav inte några slumpässiga null-värden som tur var så när jag väl ändrade detta så löste jag de andra uppgifterna. API-delen var inte så svår, men jag fick klura lite på hur jag skulle göra med
+        sessionen. Först hade jag tänkt att kortleken till API-delen inte skulle innhålla CardGraphic utan vanliga Card. Problemet var att jag ville behålla sessionen oavsett om man tittade i api-delen eller 
+        på card-sidan. För att lösa detta fick jag skapa nya getAsString-metoder som jag kallade getAsStringJson för att rätt data skulle visas berode på var man kollar.</p>
+
+        <p>Överlag är jag ganska nöjd med slutresultatet av kursmomentet, men jag är lite missnöjd över att det tog mig så lång tid att färdigställa. Jag hoppas på bättre flyt i kmom03. Förbättringspotentialen
+        ser jag främst i att jag kanske kunde implementerat ett interface så att jag inte behövt hårdkoda i DeckOfCards och kanske något trait då många metoder är samma i de olika klasserna. Det var som sagt ganska 
+        klurig att göra en sån här fri uppgift, men jag känner ändå att jag har lärt mig mycket och kan tänka mig att detta är ett bra sätt att träna på hur det kan vara i en framtida yrkesroll.</p>
+
+        <p>Veckans TIL blir det fortsatta arbetet med symfony och då framför allt hur man kan jobba med sesisonen, men även lite mer förståelse för hur POST och GET fungerar. </p>
 
         
         <hr>
