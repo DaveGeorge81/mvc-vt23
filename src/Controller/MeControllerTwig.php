@@ -50,21 +50,17 @@ class MeControllerTwig extends AbstractController
         return $this->render('report.html.twig');
     }
 
-    #[Route("/kmom01", name: "kmom01")]
-    public function kmom01(): Response
+    #[Route("/api", name: "api")]
+    public function api(): Response
     {
-        return $this->render('kmom01.html.twig');
+        return $this->render('api.html.twig');
     }
 
     #[Route("/card", name: "card")]
     public function card(): Response
     {
-        $deck = new DeckOfCards(new CardGraphic());
-        $card = new CardGraphic("clubs", "q", "black", 5);
 
-        $data = [
-        ];
-        return $this->render('card.html.twig', $data);
+        return $this->render('card.html.twig');
     }
 
     #[Route("/card/deck", name: "deck")]
@@ -72,11 +68,8 @@ class MeControllerTwig extends AbstractController
         SessionInterface $session
     ): Response {
         if ($session->has('deck') == false) {
-            $deck = new DeckOfCards(new CardGraphic());
+            $deck = new DeckOfCards();
             $session->set('deck', $deck);
-            $ms = "deck set to session";
-        } else {
-            $ms ="deck already in session";
         };
         $deck = $session->get('deck');
         $deck->sortDeck();
@@ -84,7 +77,6 @@ class MeControllerTwig extends AbstractController
 
         $data = [
             "deckCards" =>  $session->get('deck')->getString(),
-            "ms" => $ms,
             "numberOfCards" => $session->get('deck')->getNumberCards()
         ];
         return $this->render('deck.html.twig', $data);
@@ -94,18 +86,15 @@ class MeControllerTwig extends AbstractController
     public function shuffleCard(
         SessionInterface $session
     ): Response {
-        $deck = new DeckOfCards(new CardGraphic());
+        $deck = new DeckOfCards();
         $deck->shuffleDeck();
         if ($session->has('deck')) {
             $session->remove('deck');
         }
-        if ($session->has('drawn')) {
-            $session->remove('drawn');
-        }
-
 
         $data = [
-            "deckCards" =>  $deck->getString()
+            "deckCards" =>  $deck->getString(),
+            "numberOfCards" => $deck->getNumberCards()
         ];
         return $this->render('shuffle.html.twig', $data);
     }
@@ -117,7 +106,7 @@ class MeControllerTwig extends AbstractController
         if ($session->has('deck')) {
             $deck = $session->get('deck');
         } else {
-            $deck = new DeckOfCards(new CardGraphic());
+            $deck = new DeckOfCards();
         }
         if ($session->has('drawn') == false) {
             $session->set('drawn', []);
@@ -151,7 +140,7 @@ class MeControllerTwig extends AbstractController
         int $num
     ): Response {
         if ($session->has('deck') == false) {
-            $deck = new DeckOfCards(new CardGraphic());
+            $deck = new DeckOfCards();
             $session->set('deck', $deck);
         }
         $deck = $session->get('deck');
@@ -159,7 +148,6 @@ class MeControllerTwig extends AbstractController
             $maxCards = $session->get('deck')->getNumberCards();
             throw new \Exception("Drew too many cards. Only {$maxCards} cards left.");
         }
-        // $deck = new DeckOfCards(new CardGraphic());
 
         $hand = new CardHand();
         for ($i = 1; $i <= $num; $i++) {
@@ -174,41 +162,4 @@ class MeControllerTwig extends AbstractController
         ];
         return $this->render('draw-many.html.twig', $data);
     }
-
-    // #[Route("/card/deck/test", name: "test")]
-    // public function test(
-    //     SessionInterface $session
-    // ): Response
-    // {
-    //     // $card = new Card("spades", "A", Card::COLOR2, 0);
-    //     if ($session->has('deck') == False) {
-    //         $ms = "false";
-    //         $deck = new DeckOfCards(new CardGraphic());
-    //     } else {
-    //         $ms ="true";
-    //         $deck = $session->get('deck');
-
-    //     };
-    //     $test1 = [0, 1];
-    //     $test2 = $deck->testar($test1);
-    //     if ($test2 == null) {
-    //         $this->addFlash(
-    //             'warning',
-    //             'No more cards'
-    //         );
-    //         $data = [
-    //             "ms" => $ms,
-    //             "deckCards" =>  "face-sad"
-    //         ];
-    //         return $this->render('test.html.twig', $data);
-    //     };
-    //     // $session->get('deck')->removeCard(0);
-
-    //     $data = [
-    //         "ms" => $ms,
-    //         "deckCards" =>  $test2->getAsString()
-    //     ];
-    //     return $this->render('test.html.twig', $data);
-    // }
-
 }

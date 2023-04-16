@@ -13,13 +13,6 @@ class CardHand
         $this->hand[] = $card;
     }
 
-    // public function roll(): void
-    // {
-    //     foreach ($this->hand as $die) {
-    //         $die->roll();
-    //     }
-    // }
-
     public function getNumberCards(): int
     {
         return count($this->hand);
@@ -39,6 +32,15 @@ class CardHand
         $values = [];
         foreach ($this->hand as $card) {
             $values[] = $card->getAsString();
+        }
+        return $values;
+    }
+
+    public function getStringJson(): array
+    {
+        $values = [];
+        foreach ($this->hand as $card) {
+            $values[] = $card->getAsStringJson();
         }
         return $values;
     }

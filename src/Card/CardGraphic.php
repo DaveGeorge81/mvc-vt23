@@ -4,10 +4,10 @@ namespace App\Card;
 
 class CardGraphic extends Card
 {
-    public $suit;
-    public $value;
-    public $color;
-    public $cardNumber;
+    // public $suit;
+    // public $value;
+    // public $color;
+    // public $cardNumber;
     private $representation = [
         '2_of_spades',
         '3_of_spades',
@@ -72,5 +72,10 @@ class CardGraphic extends Card
     {
         return $this->representation[$this->cardNumber];
         // return $this->cardNumber;
+    }
+
+    public function getAsStringJson(): string
+    {
+        return "[{$this->suit} {$this->cardName}]";
     }
 }

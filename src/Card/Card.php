@@ -40,13 +40,13 @@ class Card
     //     return $this->value;
     // }
 
-    public function getValue(): int
+    public function getValue(): string
     {
         return $this->value;
     }
 
     public function getAsString(): string
     {
-        return "[{$this->suit} {$this->value}]";
+        return "[{$this->suit} {$this->cardName}]";
     }
 }

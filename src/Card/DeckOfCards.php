@@ -12,16 +12,12 @@ class DeckOfCards
     private $points = array('2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14');
     private $suit2Color = array("♠" => Card::COLOR2, "♡" => Card::COLOR1, "♢" => Card::COLOR1, "♣" => Card::COLOR2);
 
-    public function __construct($typeOfCard)
+    public function __construct()
     {
         $cardNum = 0;
         foreach ($this->suits as $suitAbbrev => $suit) {
             foreach (array_combine($this->suitsCards, $this->points) as $cardValue => $point) {
-                if ($typeOfCard == new CardGraphic()) {
-                    $tempcard = new CardGraphic();
-                } else {
-                    $tempcard = new Card();
-                }
+                $tempcard = new CardGraphic();
                 $tempcard->suit = $suit;
                 $tempcard->value = $point;
                 $tempcard->cardName = $cardValue;
@@ -48,6 +44,15 @@ class DeckOfCards
         return $values;
     }
 
+    public function getStringJson(): array
+    {
+        $values = [];
+        foreach ($this->deck as $card) {
+            $values[] = $card->getAsStringJson();
+        }
+        return $values;
+    }
+
     public function shuffleDeck()
     {
         shuffle($this->deck);
@@ -68,32 +73,10 @@ class DeckOfCards
         return $this->deck[0];
     }
 
-    public function testar($excluded=[])
-    {
-        do {
-            $randomCard = random_int(0, 1);
-            if ($randomCard == null) {
-                return $randomCard;
-            };
-        } while(in_array($randomCard, $excluded));
-        return $this->deck[$randomCard];
-    }
-
     public function sortDeck()
     {
         sort($this->deck);
         return $this->deck;
     }
 
-    // public function drawSingle($excluded=[]) {
-    //     do {
-    //         $randomCard = rand(0, 51);
-    //         if ($randomCard == null) {
-    //             return $randomCard;
-    //         };
-    //     } while( in_array($randomCard, $excluded));
-    //     return $this->deck[$randomCard];
-    // }
 }
-
-// $suit, $cardValue, $this->suit2Color[$suit], $cardNum++

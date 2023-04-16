@@ -3,12 +3,10 @@
 {% block title %}Draw{% endblock %}
 
 {% block body %}
+<h1>Draw card</h1>
+    <div class="cards"><img src="{{ asset('img/cards/'~ deckCards ~'.svg') }}" width="100px"></div>
 
-    {# {% for card in deckCards %} #}
-        <img src="{{ asset('img/cards/'~ deckCards ~'.svg') }}" width="100px">
-    {# {% endfor %} #}
-
-Cards left: {{ numberOfCards }}
+<h2> Number of cards left: {{ numberOfCards }}</h2>
 {{ include('flash.html.twig') }}
 
 {% endblock %}

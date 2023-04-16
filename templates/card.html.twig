@@ -3,10 +3,34 @@
 {% block title %}Card{% endblock %}
 
 {% block body %}
-    <div><a href="{{ path('deck') }}">Sorted deck</a></div>
-    <div><a href="{{ path('shuffle') }}">Shuffle deck</a></div>
-    <div><a href="{{ path('draw') }}">Draw a single card</a></div>
-    <div><a href="{{ path('draw_many', {num: 5}) }}">Draw mulitple (5) cards</a></div>
+<h1> Card Game<hr></h1>
+<p> Klicka på någon av knapparna för följande:
+    <div class="cards"><a href="{{ path('deck') }}"><button>Show sorted deck</button></a>
+    <a href="{{ path('shuffle') }}"><button>Shuffle deck</button></a>
+    <a href="{{ path('draw') }}"><button>Draw a single card</button></a>
+    <a href="{{ path('draw_many', {num: 5}) }}"><button>Draw mulitple (5) cards</button></a></div>
+
+    <h2>Klasser och UML:<hr></h2>
+    <div class="cards"><a href="{{ asset('img/cardgame.png') }}"><img src="{{ asset('img/cardgame.png') }}" width="250px" alt="UML-schema"></a></div>
+    <p>Klassen Card representerar ett spelkort. Det har properties för färg, valör/namn, om det är rött eller svart samt vilket
+    nummer kortet har i leken när det är sorterat efter valör och färg. Jag har två metoder förutom konstruktorn, getValue hämtar kortets värde (2-14) och
+    getAsString hämtar färg och valör.</p>
+
+    <p>CardGraphic använder sig av arv från Card och används för att visa bilder på de olika korten. En array kallad "representation" har namnen på de olika kortens
+    bilder, vilket kopplas samman med kortens nummer från card-klassen.</p> 
+
+    <p>CardHand är en klass som består av ett antal kort dragna från leken. Den har ingen konstruktor utan man lägger till kort till handen med hjälp av metoden "add".
+    Även här har vi metoder för att visa kortets värde (2-14). I denna ger getAsString en referens till kortets bild och getAsStringJson används för att skriva ut färg
+    och valör, vilket passar bra till API-delen.</p>
+
+    <p>DeckOfCards är klassen för själva kortleken. Den har en rad arrayer som properties med de olika valörer och färger som finns tillgängliga.
+    Konstruktorn består av en nästlad foreach-loop som först loopar färgerna och skapar kort av varje valör för varje färg. Metoderna jag använder i klassen
+    är utöver de som återfinns i cardHand även getNumberCards som räknar hur många kort leken har, shuffleDeck som sorterar leken, removeCard som tar bort ett kort,
+    drawSingle som drar ett slumpässigt kort och slutligen en metod för att sortera leken efter färg och valör.</p>
+
+
+
+
 
 
 {% endblock %}

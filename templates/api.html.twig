@@ -1,0 +1,39 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Api{% endblock %}
+
+{% block body %}
+    <h1>Api<hr></h1>
+    <h4>Dagens citat:</h4>
+    <p>Läs ett slumpässigt utvalt citat, visa dagens datum.</p>
+    <div><a href="{{ path('quote') }}"><button>Random quote</button></a></div><hr>
+
+    <h4>Visa kortlek:</h4>
+    <p>Visa kortleken sorterad efter färg och valör.
+    <div><a href="{{ path('deck_api') }}"><button>Show sorted deck</button></a></div><hr>
+
+    <h4>Blanda kortlek:</h4>
+    <p>Blanda kortleken och lägg tillbaka alla dragna kort.</p>
+    <form method="post" action="">
+    <p>
+        <input type="submit" name="Shuffle" value="Shuffle"
+            onClick="this.form.action='{{ path('shuffle_api') }}';">
+    </p>
+    </form><hr>
+
+    <h4>Dra ett kort:</h4>
+    <p> Dra ett slumpässigt kort från kortleken.</p>
+        <form method="post" action="">
+    <p>
+        <input type="submit" name="Draw single card" value="Draw single card"
+            onClick="this.form.action='{{ path('single_api') }}';">
+    </p>
+    </form><hr>
+
+    <h4>Dra flera kort:</h4>
+    <p>Välj hur många slumpässigt valda kort du vill dra från kortleken.</p>
+    <form method="post" action="{{ path('many_api') }}">
+    <input type="number" name="cards" min="1" max="99" value="1">
+    <input type="submit" name="do_it" value="Draw cards">
+    </form><hr>
+{% endblock %}

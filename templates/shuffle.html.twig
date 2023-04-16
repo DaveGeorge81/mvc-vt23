@@ -3,10 +3,13 @@
 {% block title %}Shuffle{% endblock %}
 
 {% block body %}
-
+<h1>Shuffle</h1>
+<h2> Number of cards in deck: {{ numberOfCards }}</h2>
+    <div class="cards">
     {% for card in deckCards %}
         <img src="{{ asset('img/cards/'~ card ~'.svg') }}" width="100px">
     {% endfor %}
+    </div>
 
 
 {% endblock %}

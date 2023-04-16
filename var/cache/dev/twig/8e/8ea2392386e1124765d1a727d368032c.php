@@ -84,8 +84,8 @@ class __TwigTemplate_141f76152e244d508ab68bb244b927c3 extends Template
         echo "\">Lucky</a>
                 <a href=\"";
         // line 22
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("kmom01");
-        echo "\">Kmom01</a>
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("api");
+        echo "\">Api</a>
                 <a href=\"";
         // line 23
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("card");
@@ -233,7 +233,7 @@ class __TwigTemplate_141f76152e244d508ab68bb244b927c3 extends Template
                 <a href=\"{{ path('home') }}\">Home</a>
                 <a href=\"{{ path('about') }}\">About</a>
                 <a href=\"{{ path('lucky') }}\">Lucky</a>
-                <a href=\"{{ path('kmom01') }}\">Kmom01</a>
+                <a href=\"{{ path('api') }}\">Api</a>
                 <a href=\"{{ path('card') }}\">Card</a>
                 <a href=\"{{ path('report') }}\">Report</a>
         </nav>
