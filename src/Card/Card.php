@@ -57,12 +57,6 @@ class Card
         $this->cardNumber = $cardNumber;
     }
 
-    // public function roll(): int
-    // {
-    //     $this->value = random_int(1, 6);
-    //     return $this->value;
-    // }
-
     public function getValue(): int
     {
         return $this->value;
