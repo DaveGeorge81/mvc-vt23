@@ -173,10 +173,4 @@ class MeControllerTwig extends AbstractController
         ];
         return $this->render('draw-many.html.twig', $data);
     }
-
-    // #[Route("/game", name: "game")]
-    // public function game(): Response
-    // {
-    //     return $this->render('game.html.twig');
-    // }
 }
