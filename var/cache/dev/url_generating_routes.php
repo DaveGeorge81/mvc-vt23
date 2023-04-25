@@ -17,6 +17,8 @@ return [
     '_profiler_exception' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::body'], [], [['text', '/exception'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
     'game' => [[], ['_controller' => 'App\\Controller\\MeControllerGame::game'], [], [['text', '/game']], [], [], []],
+    'init' => [[], ['_controller' => 'App\\Controller\\MeControllerGame::init'], [], [['text', '/game/init']], [], [], []],
+    'game21' => [[], ['_controller' => 'App\\Controller\\MeControllerGame::game21'], [], [['text', '/game/game21']], [], [], []],
     'quote' => [[], ['_controller' => 'App\\Controller\\MeControllerJson::quote'], [], [['text', '/api/quote']], [], [], []],
     'deck_api' => [[], ['_controller' => 'App\\Controller\\MeControllerJson::deck'], [], [['text', '/api/deck']], [], [], []],
     'shuffle_api' => [[], ['_controller' => 'App\\Controller\\MeControllerJson::shuffleCard'], [], [['text', '/api/deck/shuffle']], [], [], []],

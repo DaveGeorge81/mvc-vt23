@@ -93,7 +93,7 @@ class __TwigTemplate_14b10c504a0f4034cda45253969a1961 extends Template
     <p>Mitt namn är David Dahlgren, är 41 år och kommer från Halmstad. När jag inte pluggar till webbprogrammerare jobbar jag som lärare i 
     engelska och SO på högstadiet.  Det har varit ganska tufft att få ihop det tidsmässigt, med både jobb och studier, så nu i vår har jag tagit tjänstledig. 
     Jag har alltid haft ett stort intresse för datorer och IT, fick min första dator, en C64, julen 1989 och har sen dess varit fascinerad av dessa aparater. 
-    I ärlighetens namn har väl spel varit det främsta intresset, men på senare tid har jag även börjat intressera mig för hur spelen är uppbyggda. 
+    I ärlighetens namn har väl spel alltid varit det främsta intresset, men på senare tid har jag även börjat intressera mig för hur spelen är uppbyggda. 
     Därifrån var inte steget till att börja plugga progarammering långt.</p>
 ";
         
@@ -131,7 +131,7 @@ class __TwigTemplate_14b10c504a0f4034cda45253969a1961 extends Template
     <p>Mitt namn är David Dahlgren, är 41 år och kommer från Halmstad. När jag inte pluggar till webbprogrammerare jobbar jag som lärare i 
     engelska och SO på högstadiet.  Det har varit ganska tufft att få ihop det tidsmässigt, med både jobb och studier, så nu i vår har jag tagit tjänstledig. 
     Jag har alltid haft ett stort intresse för datorer och IT, fick min första dator, en C64, julen 1989 och har sen dess varit fascinerad av dessa aparater. 
-    I ärlighetens namn har väl spel varit det främsta intresset, men på senare tid har jag även börjat intressera mig för hur spelen är uppbyggda. 
+    I ärlighetens namn har väl spel alltid varit det främsta intresset, men på senare tid har jag även börjat intressera mig för hur spelen är uppbyggda. 
     Därifrån var inte steget till att börja plugga progarammering långt.</p>
 {% endblock %}", "home.html.twig", "/home/david/dbwebb-kurser/mvc/me/report/templates/home.html.twig");
     }

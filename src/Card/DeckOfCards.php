@@ -118,4 +118,14 @@ class DeckOfCards
         return $this->deck;
     }
 
+    /**
+     *@return Card
+     */
+    public function hitDeck()
+    {
+        $hit = $this->deck[0];
+        unset($this->deck[0]);
+        return $hit;
+    }
+
 }
