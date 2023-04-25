@@ -11,18 +11,22 @@
 </div> #}
 
 <table>
-<th>Spelarens kort:</th>
-<th>Bankens kort:</th>
+<th>Players Hand:</th>
+<th>Dealers Hand:</th>
 <tr>
 <td>{% for card in playerCards %}
         <img src="{{ asset('img/cards/'~ card ~'.svg') }}" width="100px">
     {% endfor %}</td>
 <td>{% for card in cpuCards %}
         <img src="{{ asset('img/cards/'~ card ~'.svg') }}" width="100px">
-    {% endfor %}</td>
+    {% endfor %}</td></tr>
+<tr>
+<td>Card values: {{ playerPoints }}</td>
+</tr>
 </table>
 
-    <a href="{{ path('draw') }}"><button>Draw another card</button></a>
+    <a href="{{ path('hit') }}"><button>Hit!</button></a>
+    <a href="{{ path('hit') }}"><button>Stay!</button></a>
 
 <h2> Number of cards left: {{ numberOfCards }}</h2>
 {{ include('flash.html.twig') }}

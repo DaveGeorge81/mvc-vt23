@@ -17,6 +17,7 @@ return [
         '/game' => [[['_route' => 'game', '_controller' => 'App\\Controller\\MeControllerGame::game'], null, null, null, false, false, null]],
         '/game/init' => [[['_route' => 'init', '_controller' => 'App\\Controller\\MeControllerGame::init'], null, null, null, false, false, null]],
         '/game/game21' => [[['_route' => 'game21', '_controller' => 'App\\Controller\\MeControllerGame::game21'], null, null, null, false, false, null]],
+        '/game/hit' => [[['_route' => 'hit', '_controller' => 'App\\Controller\\MeControllerGame::hit'], null, null, null, false, false, null]],
         '/api/quote' => [[['_route' => 'quote', '_controller' => 'App\\Controller\\MeControllerJson::quote'], null, null, null, false, false, null]],
         '/api/deck' => [[['_route' => 'deck_api', '_controller' => 'App\\Controller\\MeControllerJson::deck'], null, ['GET' => 0], null, false, false, null]],
         '/api/deck/shuffle' => [[['_route' => 'shuffle_api', '_controller' => 'App\\Controller\\MeControllerJson::shuffleCard'], null, ['POST' => 0], null, false, false, null]],

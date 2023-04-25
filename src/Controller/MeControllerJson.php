@@ -15,7 +15,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MeControllerJson
 {
-
     #[Route("/api/quote", name: "quote")]
     public function quote(): Response
     {

@@ -121,10 +121,10 @@ class DeckOfCards
     /**
      *@return Card
      */
-    public function hitDeck()
+    public function hitCard()
     {
         $hit = $this->deck[0];
-        unset($this->deck[0]);
+        array_splice($this->deck, 0, 1);
         return $hit;
     }
 

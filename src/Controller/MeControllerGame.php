@@ -25,24 +25,21 @@ class MeControllerGame extends AbstractController
     public function init(
         SessionInterface $session
     ): Response {
-        /**
-         * @var DeckOfCards
-         */
+        if ($session->has('game21')) {
+            $session->remove('game21');
+        }
+
         $deck = new DeckOfCards();
         $deck->shuffleDeck();
-        $session->set('game21', $deck);
 
         $playerHand = new CardHand();
-        $playerHand->add($deck->hitDeck());
+        $playerHand->add($deck->hitCard());
         $session->set('player', $playerHand);
+        $session->set('game21', $deck);
 
         $cpuHand = new CardHand();
         $session->set('cpu', $cpuHand);
 
-        // $data = [
-        //     "deckCards" =>  $deck->getString(),
-        //     "numberOfCards" => $deck->getNumberCards()
-        // ];
         return $this->redirectToRoute('game21');
     }
 
@@ -72,22 +69,32 @@ class MeControllerGame extends AbstractController
             return $this->render('game21.html.twig', $data);
         }
 
-        // if ($playerHand->getValues() != []) {
-        //     $data = [
-        //         "playerCards" =>  $playerHand->getString(),
-        //         "cpuCards" =>  "",
-        //         "numberOfCards" => $deck->getNumberCards()
-        //     ];
-        //     return $this->render('game21.html.twig', $data);
-        // }
-
-
         $data = [
             "playerCards" =>  $playerHand->getString(),
             "cpuCards" =>  "",
-            "numberOfCards" => $deck->getNumberCards()
+            "numberOfCards" => $deck->getNumberCards(),
+            "playerPoints" => array_sum($playerHand->getValues())
         ];
         return $this->render('game21.html.twig', $data);
     }
-}
 
+    #[Route("/game/hit", name: "hit")]
+    public function hit(
+        SessionInterface $session
+    ): Response {
+        /**
+         * @var DeckOfCards
+         */
+        $deck = $session->get('game21');
+
+        /**
+         * @var CardHand
+         */
+        $playerHand = $session->get('player');
+        $playerHand->add($deck->hitCard());
+        $session->set('player', $playerHand);
+        $session->set('game21', $deck);
+
+        return $this->redirectToRoute('game21');
+    }
+}

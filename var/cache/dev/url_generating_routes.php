@@ -19,6 +19,7 @@ return [
     'game' => [[], ['_controller' => 'App\\Controller\\MeControllerGame::game'], [], [['text', '/game']], [], [], []],
     'init' => [[], ['_controller' => 'App\\Controller\\MeControllerGame::init'], [], [['text', '/game/init']], [], [], []],
     'game21' => [[], ['_controller' => 'App\\Controller\\MeControllerGame::game21'], [], [['text', '/game/game21']], [], [], []],
+    'hit' => [[], ['_controller' => 'App\\Controller\\MeControllerGame::hit'], [], [['text', '/game/hit']], [], [], []],
     'quote' => [[], ['_controller' => 'App\\Controller\\MeControllerJson::quote'], [], [['text', '/api/quote']], [], [], []],
     'deck_api' => [[], ['_controller' => 'App\\Controller\\MeControllerJson::deck'], [], [['text', '/api/deck']], [], [], []],
     'shuffle_api' => [[], ['_controller' => 'App\\Controller\\MeControllerJson::shuffleCard'], [], [['text', '/api/deck/shuffle']], [], [], []],
