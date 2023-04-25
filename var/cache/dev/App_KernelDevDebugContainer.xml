@@ -341,7 +341,13 @@
     <service id="App\Card\CardGraphic" class="App\Card\CardGraphic" autowire="true" autoconfigure="true"/>
     <service id="App\Card\CardHand" class="App\Card\CardHand" autowire="true" autoconfigure="true"/>
     <service id="App\Card\DeckOfCards" class="App\Card\DeckOfCards" autowire="true" autoconfigure="true"/>
-    <service id="App\Controller\MeController" class="App\Controller\MeController" autowire="true" autoconfigure="true"/>
+    <service id="App\Controller\MeControllerGame" class="App\Controller\MeControllerGame" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.jIxfAsi.App\Controller\MeControllerGame"/>
+      </call>
+    </service>
     <service id="App\Controller\MeControllerJson" class="App\Controller\MeControllerJson" autowire="true" autoconfigure="true"/>
     <service id="App\Controller\MeControllerTwig" class="App\Controller\MeControllerTwig" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
@@ -5980,6 +5986,9 @@
         <argument key="_default" type="service_closure" id="webpack_encore.entrypoint_lookup[_default]"/>
       </argument>
     </service>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\MeControllerGame" class="App\Controller\MeControllerGame" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\MeControllerGame" class="App\Controller\MeControllerGame" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\MeControllerGame" class="App\Controller\MeControllerGame" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\MeControllerTwig" class="App\Controller\MeControllerTwig" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\MeControllerTwig" class="App\Controller\MeControllerTwig" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\MeControllerTwig" class="App\Controller\MeControllerTwig" autowire="true" autoconfigure="true" abstract="true"/>
@@ -6845,6 +6854,12 @@
         <argument key="serializer" type="service_closure" id="debug.serializer" on-invalid="ignore"/>
         <argument key="twig" type="service_closure" id="twig" on-invalid="ignore"/>
       </argument>
+    </service>
+    <service id=".service_locator.jIxfAsi.App\Controller\MeControllerGame" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\MeControllerGame"/>
+      <argument>App\Controller\MeControllerGame</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.jIxfAsi" method="withContext"/>
     </service>
     <service id=".service_locator.jIxfAsi.App\Controller\MeControllerTwig" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\MeControllerTwig"/>

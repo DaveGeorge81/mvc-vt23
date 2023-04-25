@@ -6,6 +6,9 @@ use App\Card\Card;
 
 class CardHand
 {
+    /**
+     * @var array<Card>  array of cards
+     */
     private $hand = [];
 
     public function add(Card $card): void
@@ -18,6 +21,10 @@ class CardHand
         return count($this->hand);
     }
 
+
+    /**
+     *@return array<int>
+     */
     public function getValues(): array
     {
         $values = [];
@@ -27,6 +34,9 @@ class CardHand
         return $values;
     }
 
+    /**
+     *@return array<string>
+     */
     public function getString(): array
     {
         $values = [];
@@ -36,6 +46,9 @@ class CardHand
         return $values;
     }
 
+    /**
+     *@return array<string>
+     */
     public function getStringJson(): array
     {
         $values = [];

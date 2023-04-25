@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use Exception;
+
 use App\Card\Card;
 use App\Card\CardGraphic;
 use App\Card\CardHand;
@@ -30,10 +32,10 @@ class MeControllerTwig extends AbstractController
     {
         $number = random_int(0, 100);
 
+        $pic = "even";
+
         if ($number % 2 == 1) {
             $pic = "odd";
-        } else {
-            $pic = "even";
         }
 
         $data = [
@@ -71,13 +73,16 @@ class MeControllerTwig extends AbstractController
             $deck = new DeckOfCards();
             $session->set('deck', $deck);
         };
+        /**
+         * @var DeckOfCards
+         */
         $deck = $session->get('deck');
         $deck->sortDeck();
         $session->set('deck', $deck);
 
         $data = [
-            "deckCards" =>  $session->get('deck')->getString(),
-            "numberOfCards" => $session->get('deck')->getNumberCards()
+            "deckCards" =>  $deck->getString(),
+            "numberOfCards" => $deck->getNumberCards()
         ];
         return $this->render('deck.html.twig', $data);
     }
@@ -103,33 +108,36 @@ class MeControllerTwig extends AbstractController
     public function drawCard(
         SessionInterface $session
     ): Response {
-        if ($session->has('deck')) {
-            $deck = $session->get('deck');
-        } else {
+        if ($session->has('deck') == false) {
             $deck = new DeckOfCards();
+            $session->set('deck', $deck);
         }
+        /**
+         * @var DeckOfCards
+         */
+        $deck = $session->get('deck');
         if ($session->has('drawn') == false) {
             $session->set('drawn', []);
         }
 
         $singleCard = $deck->drawSingle();
-        if ($singleCard == "empty") {
+        if ($singleCard->suit == "empty") {
             $this->addFlash(
                 'warning',
                 'No more cards'
             );
             $data = [
                 "deckCards" =>  "face-sad",
-                "numberOfCards" => $session->get('deck')->getNumberCards()
+                "numberOfCards" => $deck->getNumberCards()
             ];
             return $this->render('draw.html.twig', $data);
         };
-        $deck->removeCard($singleCard->cardNumber);
+        $deck->removeCard();
         $session->set('deck', $deck);
 
         $data = [
             "deckCards" =>  $singleCard->getAsString(),
-            "numberOfCards" => $session->get('deck')->getNumberCards()
+            "numberOfCards" => $deck->getNumberCards()
         ];
         return $this->render('draw.html.twig', $data);
     }
@@ -143,17 +151,20 @@ class MeControllerTwig extends AbstractController
             $deck = new DeckOfCards();
             $session->set('deck', $deck);
         }
+        /**
+         * @var DeckOfCards
+         */
         $deck = $session->get('deck');
-        if ($num > $session->get('deck')->getNumberCards()) {
-            $maxCards = $session->get('deck')->getNumberCards();
-            throw new \Exception("Drew too many cards. Only {$maxCards} cards left.");
+        if ($num > $deck->getNumberCards()) {
+            $maxCards = $deck->getNumberCards();
+            throw new Exception("Drew too many cards. Only {$maxCards} cards left.");
         }
 
         $hand = new CardHand();
         for ($i = 1; $i <= $num; $i++) {
             $singleCard = $deck->drawSingle();
             $hand->Add($singleCard);
-            $deck->removeCard($singleCard->cardNumber);
+            $deck->removeCard();
         }
 
         $data = [
@@ -162,4 +173,10 @@ class MeControllerTwig extends AbstractController
         ];
         return $this->render('draw-many.html.twig', $data);
     }
+
+    // #[Route("/game", name: "game")]
+    // public function game(): Response
+    // {
+    //     return $this->render('game.html.twig');
+    // }
 }

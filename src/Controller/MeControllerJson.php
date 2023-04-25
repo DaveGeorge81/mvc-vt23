@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Exception;
 use App\Card\Card;
 use App\Card\CardGraphic;
 use App\Card\CardHand;
@@ -61,16 +62,19 @@ class MeControllerJson
         SessionInterface $session
     ): Response {
         if ($session->has('deck') == false) {
-            $deck = new DeckOfCards(new CardGraphic());
+            $deck = new DeckOfCards();
             $session->set('deck', $deck);
         };
+        /**
+         * @var DeckOfCards
+         */
         $deck = $session->get('deck');
         $deck->sortDeck();
         $session->set('deck', $deck);
 
         $data = [
-            "cardsInDeck" =>  $session->get('deck')->getStringJson(),
-            "numberOfCards" => $session->get('deck')->getNumberCards()
+            "cardsInDeck" =>  $deck->getStringJson(),
+            "numberOfCards" => $deck->getNumberCards()
         ];
         $response = new JsonResponse($data);
         $response->setEncodingOptions(
@@ -87,7 +91,7 @@ class MeControllerJson
     public function shuffleCard(
         SessionInterface $session
     ): Response {
-        $deck = new DeckOfCards(new CardGraphic());
+        $deck = new DeckOfCards();
         $deck->shuffleDeck();
         if ($session->has('deck')) {
             $session->remove('deck');
@@ -111,19 +115,23 @@ class MeControllerJson
     public function drawCard(
         SessionInterface $session
     ): Response {
-        if ($session->has('deck')) {
-            $deck = $session->get('deck');
-        } else {
+        if ($session->has('deck') == false) {
             $deck = new DeckOfCards();
+            $session->set('deck', $deck);
         }
+        /**
+         * @var DeckOfCards
+         */
+        $deck = $session->get('deck');
+
         if ($session->has('drawn') == false) {
             $session->set('drawn', []);
         }
 
         $singleCard = $deck->drawSingle();
-        if ($singleCard == "empty") {
+        if ($singleCard->suit == "empty") {
             $data = [
-                "cardsLeft" => $session->get('deck')->getNumberCards()
+                "cardsLeft" => $deck->getNumberCards()
             ];
             $response = new JsonResponse($data);
             $response->setEncodingOptions(
@@ -134,12 +142,12 @@ class MeControllerJson
             );
             return $response;
         };
-        $deck->removeCard($singleCard->cardNumber);
+        $deck->removeCard();
         $session->set('deck', $deck);
 
         $data = [
             "drawnCard" =>  $singleCard->getAsStringJson(),
-            "cardsLeft" => $session->get('deck')->getNumberCards()
+            "cardsLeft" => $deck->getNumberCards()
         ];
         $response = new JsonResponse($data);
         $response->setEncodingOptions(
@@ -163,10 +171,13 @@ class MeControllerJson
             $deck = new DeckOfCards();
             $session->set('deck', $deck);
         }
+        /**
+         * @var DeckOfCards
+         */
         $deck = $session->get('deck');
-        if ($num > $session->get('deck')->getNumberCards()) {
-            $maxCards = $session->get('deck')->getNumberCards();
-            throw new \Exception("Drew too many cards. Only {$maxCards} cards left.");
+        if ($num > $deck->getNumberCards()) {
+            $maxCards = $deck->getNumberCards();
+            throw new Exception("Drew too many cards. Only {$maxCards} cards left.");
         }
         // $deck = new DeckOfCards(new CardGraphic());
 
@@ -174,7 +185,7 @@ class MeControllerJson
         for ($i = 1; $i <= $num; $i++) {
             $singleCard = $deck->drawSingle();
             $hand->Add($singleCard);
-            $deck->removeCard($singleCard->cardNumber);
+            $deck->removeCard();
         }
 
         $data = [

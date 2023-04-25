@@ -4,10 +4,9 @@ namespace App\Card;
 
 class CardGraphic extends Card
 {
-    // public $suit;
-    // public $value;
-    // public $color;
-    // public $cardNumber;
+    /**
+     * @var array<string> name of card for image
+     */
     private $representation = [
         '2_of_spades',
         '3_of_spades',
