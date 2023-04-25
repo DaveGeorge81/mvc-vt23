@@ -15,7 +15,6 @@ return [
         '/_profiler/xdebug' => [[['_route' => '_profiler_xdebug', '_controller' => 'web_profiler.controller.profiler::xdebugAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/game' => [[['_route' => 'game', '_controller' => 'App\\Controller\\MeControllerGame::game'], null, null, null, false, false, null]],
-        '/api/lucky/number' => [[['_route' => 'app_mecontrollerjson_jsonnumber', '_controller' => 'App\\Controller\\MeControllerJson::jsonNumber'], null, null, null, false, false, null]],
         '/api/quote' => [[['_route' => 'quote', '_controller' => 'App\\Controller\\MeControllerJson::quote'], null, null, null, false, false, null]],
         '/api/deck' => [[['_route' => 'deck_api', '_controller' => 'App\\Controller\\MeControllerJson::deck'], null, ['GET' => 0], null, false, false, null]],
         '/api/deck/shuffle' => [[['_route' => 'shuffle_api', '_controller' => 'App\\Controller\\MeControllerJson::shuffleCard'], null, ['POST' => 0], null, false, false, null]],
