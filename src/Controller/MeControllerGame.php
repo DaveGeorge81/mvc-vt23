@@ -32,8 +32,14 @@ class MeControllerGame extends AbstractController
         $deck = new DeckOfCards();
         $deck->shuffleDeck();
 
+        $done = "no";
+        $session->set('done', $done);
+
+        $session->set('playerPoints', 0);
+        $session->set('cpuPoints', 0);
+
         $playerHand = new CardHand();
-        $playerHand->add($deck->hitCard());
+        // $playerHand->add($deck->hitCard());
         $session->set('player', $playerHand);
         $session->set('game21', $deck);
 
@@ -59,12 +65,25 @@ class MeControllerGame extends AbstractController
          * @var CardHand
          */
         $cpuHand = $session->get('cpu');
+        // $playerPoints = $playerHand->points();
+        $playerPoints = $session->get('playerPoints');
+        // $cpuPoints = $cpuHand->points();
+        // $session->set('playerPoints', $playerPoints);
+        $cpuPoints = $session->get('cpuPoints');
+
+        /**
+         * @var string
+         */
+        $done = $session->get('done');
 
         if ($cpuHand->getValues() != []) {
             $data = [
                 "playerCards" =>  $playerHand->getString(),
                 "cpuCards" =>  $cpuHand->getString(),
-                "numberOfCards" => $deck->getNumberCards()
+                "numberOfCards" => $deck->getNumberCards(),
+                "playerPoints" => $playerPoints,
+                "cpuPoints" => $cpuPoints,
+                "done" => $done
             ];
             return $this->render('game21.html.twig', $data);
         }
@@ -73,7 +92,9 @@ class MeControllerGame extends AbstractController
             "playerCards" =>  $playerHand->getString(),
             "cpuCards" =>  "",
             "numberOfCards" => $deck->getNumberCards(),
-            "playerPoints" => array_sum($playerHand->getValues())
+            "playerPoints" => $playerPoints,
+            "cpuPoints" => "",
+            "done" => $done
         ];
         return $this->render('game21.html.twig', $data);
     }
@@ -94,6 +115,65 @@ class MeControllerGame extends AbstractController
         $playerHand->add($deck->hitCard());
         $session->set('player', $playerHand);
         $session->set('game21', $deck);
+        $session->set('playerPoints', $playerHand->points());
+
+        if ($session->get('playerPoints') > 21) {
+            $this->addFlash(
+                'alert',
+                'Bust! You loose!'
+            );
+        }
+
+        if ($session->get('playerPoints') == 21) {
+            $this->addFlash(
+                'success',
+                'You got 21! You win!'
+            );
+        }
+
+        return $this->redirectToRoute('game21');
+    }
+
+    #[Route("/game/cpuHit", name: "cpuHit")]
+    public function cpuHit(
+        SessionInterface $session
+    ): Response {
+        /**
+         * @var DeckOfCards
+         */
+        $deck = $session->get('game21');
+
+        /**
+         * @var CardHand
+         */
+        $cpuHand = $session->get('cpu');
+        $cpuHand->add($deck->hitCard());
+        $session->set('cpu', $cpuHand);
+        $session->set('game21', $deck);
+
+        $done = "yes";
+        $session->set('done', $done);
+
+        $session->set('cpuPoints', $cpuHand->points());
+
+        if ($session->get('cpuPoints') < 17) {
+            return $this->redirectToRoute('cpuHit');
+        }
+
+        if ($session->get('playerPoints') > $session->get('cpuPoints') ||($session->get('cpuPoints') > 21) ) {
+            $this->addFlash(
+                'success',
+                'Congratulations! You win!'
+            );
+        }
+
+        if (($session->get('playerPoints') == $session->get('cpuPoints') || 
+            (($session->get('playerPoints') < $session->get('cpuPoints')) && $session->get('cpuPoints') <= 21))) {
+            $this->addFlash(
+                'warning',
+                'Sorry! Bank wins!'
+            );
+        }
 
         return $this->redirectToRoute('game21');
     }
