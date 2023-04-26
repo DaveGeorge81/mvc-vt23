@@ -57,4 +57,34 @@ class CardHand
         }
         return $values;
     }
+
+
+    public function points(): int
+    {
+        $points = 0;
+        $aces = 0;
+        foreach ($this->hand as $card) {
+            $points += $card->getValue();
+            if ($card->getName() == 'A') {
+                $aces += 1;
+            }
+        }
+        while (($aces == 1) && ($points > 21)) {
+            $points -= 13;
+            $aces -= 1;
+        }
+        return $points;
+    }
+
+        /**
+     *@return array<int>
+     */
+    public function getNames(): array
+    {
+        $values = [];
+        foreach ($this->hand as $card) {
+            $values[] = $card->getName();
+        }
+        return $values;
+    }
 }
