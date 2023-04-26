@@ -94,3 +94,24 @@ footer {
 .cards {
     text-align: center;
 }
+
+.flash-alert {
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.flash-success {
+    padding: 20px;
+    background-color: #5ee988;
+    color: #000;
+    margin-bottom: 15px;
+}
+
+.flash-warning {
+    padding: 20px;
+    background-color: #e9d45e;
+    color: #000;
+    margin-bottom: 15px;
+}
