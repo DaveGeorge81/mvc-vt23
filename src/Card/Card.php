@@ -59,4 +59,9 @@ class Card
     {
         return "[{$this->suit} {$this->cardName}]";
     }
+
+    public function getName(): string
+    {
+        return $this->cardName;
+    }
 }
