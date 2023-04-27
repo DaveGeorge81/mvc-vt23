@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Bet{% endblock %}
+
+{% block body %}
+    <h1>Make bet<hr></h1>
+
+    <table>
+    <th>Player's money</th>
+    <th>Dealer's money</th>
+    <tr>
+    <td>{{ playerMoney }}</td>
+    <td>{{ cpuMoney }}</td>
+    </tr>
+    </table>
+
+    <h4>How much will you bet this round?</h4>
+    <form method="post" action="{{ path('bet') }}">
+    <input type="number" name="amount" min="1" max={{ playerMoney }} value="1">
+    <input type="submit" name="do_it" value="Place bet">
+    </form><hr>
+
+{% endblock %}
