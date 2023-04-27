@@ -69,7 +69,7 @@ class CardHand
                 $aces += 1;
             }
         }
-        while (($aces == 1) && ($points > 21)) {
+        while (($aces > 0) && ($points > 21)) {
             $points -= 13;
             $aces -= 1;
         }
@@ -77,7 +77,7 @@ class CardHand
     }
 
         /**
-     *@return array<int>
+     *@return array<string>
      */
     public function getNames(): array
     {

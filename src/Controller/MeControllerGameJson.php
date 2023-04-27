@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class MeControllerGameJson
 {
     #[Route("/api/game", name: "game_api")]
-    public function game_api(
+    public function gameApi(
         SessionInterface $session
     ): Response {
         /**

@@ -3,13 +3,13 @@
 {% block title %}Game21{% endblock %}
 
 {% block body %}
-<h1>Kortspelet 21</h1>
-{# <div class="cards">
-    {% for card in deckCards %}
-        <img src="{{ asset('img/cards/'~ card ~'.svg') }}" width="100px">
-    {% endfor %}
-</div> #}
+<h1>Kortspelet 21<hr></h1>
 
+{{ include('flash.html.twig') }}
+{% if (playerMoney <= 0) or (cpuMoney <= 0) %}
+    <h2>GAME OVER!</h2>
+    <div class="cards"><a href="{{ path('init') }}"><button>Start a new game!</button></a><hr></div>
+{% endif %}
 <table>
 <th>Players Hand:</th>
 <th>Dealers Hand:</th>
@@ -22,13 +22,22 @@
     {% endfor %}</td></tr>
 <tr>
 <td>Card values: {{ playerPoints }}</td>
+<td>Card values: {{ cpuPoints }}</td>
 </tr>
-</table>
+<th>Players Money: {{ playerMoney }}</th>
+<th>Dealers Money: {{ cpuMoney }}</th>
+</table><hr>
 
-    <a href="{{ path('hit') }}"><button>Hit!</button></a>
-    <a href="{{ path('hit') }}"><button>Stay!</button></a>
+{% if (playerPoints < 21) and (done == "no") %}
+    <div class="cards"><a href="{{ path('hit') }}"><button>Hit!</button></a>
+    <a href="{{ path('cpuHit') }}"><button>Stay!</button></a></div>
+{% endif %}
+
+{% if (done == "yes") and (playerMoney > 0) and (cpuMoney > 0) %}
+    <div class="cards"><a href="{{ path('make-bet') }}"><button>Next round!</button></a></div>
+{% endif %}
 
 <h2> Number of cards left: {{ numberOfCards }}</h2>
-{{ include('flash.html.twig') }}
+
 
 {% endblock %}

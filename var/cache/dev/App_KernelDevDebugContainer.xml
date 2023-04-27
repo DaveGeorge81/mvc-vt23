@@ -341,6 +341,7 @@
     <service id="App\Card\CardGraphic" class="App\Card\CardGraphic" autowire="true" autoconfigure="true"/>
     <service id="App\Card\CardHand" class="App\Card\CardHand" autowire="true" autoconfigure="true"/>
     <service id="App\Card\DeckOfCards" class="App\Card\DeckOfCards" autowire="true" autoconfigure="true"/>
+    <service id="App\Card\Player" class="App\Card\Player" autowire="true" autoconfigure="true"/>
     <service id="App\Controller\MeControllerGame" class="App\Controller\MeControllerGame" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -348,6 +349,7 @@
         <argument type="service" id=".service_locator.jIxfAsi.App\Controller\MeControllerGame"/>
       </call>
     </service>
+    <service id="App\Controller\MeControllerGameJson" class="App\Controller\MeControllerGameJson" autowire="true" autoconfigure="true"/>
     <service id="App\Controller\MeControllerJson" class="App\Controller\MeControllerJson" autowire="true" autoconfigure="true"/>
     <service id="App\Controller\MeControllerTwig" class="App\Controller\MeControllerTwig" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>

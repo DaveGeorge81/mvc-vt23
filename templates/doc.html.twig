@@ -1,0 +1,34 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Game{% endblock %}
+
+{% block body %}
+<h1>Dokumentation<hr></h1>
+<h2>Flödesschema:</h2>
+<p>Ett enkelt flödesschema som visar hur spelet går till i stora drag.</p>
+    <div class="cards"><a href="{{ asset('img/flowchart21.png') }}"><img src="{{ asset('img/flowchart21.png') }}" width="400px" alt="flowchart"></a><hr></div>
+
+<h2>Psuedokod:</h2>
+<p> Jag valde här att visa hur det går till när det är datorn tur att dra kort.</p>
+    <div class="cards"><a href="{{ asset('img/psuedo.png') }}"><img src="{{ asset('img/psuedo.png') }}" width="600px" alt="psuedo code"></a><hr></div>
+
+<h2>Klasser:</h2>
+<p>Jag valde främst att jobba efter de kortklasser jag tidigare skapat när jag programmerade kortspelet, så här kommer en kort sammanfattning.</p>
+
+<p>Card: Klassen för alla spelkort. Jag la här till metoden getName för att plocka vad för typ av kort det var och inte bara kortets värde. Detta kom
+sen till använding i en metod jag skapade i CardHand-klassen.</p>
+
+<p>Cardgraphic: Visar korten som bilder, ärver av Card-klassen. </p>
+
+<p>CardHand: Här läggs de kort spelaren har dragit ur leken. För att Ess skulle kunna ha både värde 1 och 14 skapade jag metoden Points som minskar
+handens värde med 13 för varje Ess spelaren har sålänge handens totala värde överstiger 21. Skapde även metoden getNames som visar typen för alla kort i handen.</p>
+
+<p>DeckOfCards: Själva kortleken. Det enda jag ändrade här var att lägga till medtoden hit för att dra kort som inte blandar leken efter varje dragning.</p>
+
+<p>Player: Denna klassen skapade jag i samband med att jag implementerade förmågan att satsa pengar inför varje omgång. Den innehåller bara attributet money
+och metoderna för att visa hur mycket pengar spelaren har samt metoder för att lägga till och ta bort pengar. Skapades främst för att kunna utvecklas mer i framtiden.</p><hr>
+
+
+
+
+{% endblock %}

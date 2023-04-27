@@ -12,7 +12,6 @@ class Player
 
     public function __construct(
         int $money=100,
-
     ) {
         $this->money = $money;
     }
@@ -22,11 +21,18 @@ class Player
         return $this->money;
     }
 
+
+    /**
+     * @param int $money
+     */
     public function addMoney($money): void
     {
         $this->money += $money;
     }
 
+    /**
+     * @param int $money
+     */
     public function subMoney($money): void
     {
         $this->money -= $money;
