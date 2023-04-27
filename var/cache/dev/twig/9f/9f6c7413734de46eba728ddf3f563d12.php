@@ -158,7 +158,31 @@ class __TwigTemplate_650b070136375238094c0adee138600b extends Template
         
         <hr>
         <h2 id=\"kmom03\">kmom03</h2>
-        <p>Här kommer redovisningstexten för detta kursmoment.</p>
+        <p>Denna vecka har vi fått utveckla ett eget kortspel. Som en del i detta skulle vi göra både ett flödesschema och skriva psuedokod. Flödesschemat var relativt enkelt att göra då jag tyckte det
+        kändes ganska logiskt hur man skulle rita upp det. Eftersom jag gjorde det innan jag började skriva koden blev det inte exakt som i slutända men det är väl lite det som är tanken, att man har ett skal att
+        utgå från som man senare kan finslipa ju mer man jobbar med det. Psuedokoden tyckte jag var lite klurigare. Det var inte helt lätt att bestämma vad jag skulle fokusera på, i ett par fall kom jag inte på hur 
+        jag skulle få fram det jag skulle koda i psuedokoden, t ex om spelaren vill stanna eller dra ett nytt kort. Jag valde därför enbart att skriva psuedokod för banken spelrunda. Det kändes mer logisk då jag vet
+        när banken stannar eller drar ett nytt kort. Det finns lite olika sätt att skriva psuedokod på, men jag skriva den som kommentarer man sedan kan ta in i källfilen när man ska koda. Det tycker jag känns som ett
+        anävndbart sätt att använda psuedokoden på och något jag förmodligen kommer använda mig av i framtiden. Jag har väl inte riktigt kommit in i problemlösningstankesättet riktigt ännu utan oftast sätter jag igång och
+        börjar koda direkt. Det blir då ofta att man gör lite här och lite där och sen i slutändan måste ändra en massa, så jag kan absolut se fördelar med att jobba så här.</p>
+
+        <p>Jag valde att göra kortspelet 21. Det var inte så svårt att komma igång och låta spelaren dra kort. Den koden hade jag ju redan från kmom02. Det jag tyckte var svårast var faktiskt hur jag skulle få spelet att se
+        Ess som både 1 och 14. Jag tänkte som vanligt i mer avancerade banor än jag behövde, men kom tillslut fram till att det enklaste vore att spela essen som 14 så länge inte poängen överstiger 21. Efter lite klurande kom
+        jag fram till att detta enklast löstes med en while-loop. Jag är inte jättevan vid att arbeta med while-loopar då jag tenderar att luta mig mot if-satser och for-loopar. Men i detta fallet var det smidigare med en while-loop.
+        Att sen låta datorn spela en runda var inte heller det särskilt svårt. Även här insåg jag att en while-loop också kunde vara på sin plats. Så länge datorns poäng understiger 17 dras ett nytt kort. Jag hade först tänkt
+        att jag skulle göra samtliga extra-krav, för jag tyckte de verkade lagom utmanande. Dessvärre drog jag på mig kraftig förklylning vilket gjorde att jag inte hann med alla. Jag lyckades dock lägga in att man kan satsa pengar
+        och att man spelar tills dess att antingen banken eller spelaren är bankrutt. Jag främst att bara jobba med de klasser vi skapade i kmom02. Men när jag skulle implementera betting-funktionen tänkte jag att det vore smidigt
+        att skapa en Player-klass också. Det blev en ganska liten klass, men hade kunnat utvecklas mer om man gör spelet mer avancerat. Det jag tyckte var absolut svårast var att försöka hålla controller-filerna så små som möjligt.
+        Tycker inte att jag skriver mycket kod där egentligen men en while-loop här och en eller två if-satser där så känns de inte så magra längre. Dock så består koden i controller-filerna mest av kallandet på metoder så det kanske
+        inte är så farligt ändå? Men det är nog den främsta förbättringspotentialen jag ser med mitt arbete. Designen är jag relativt nöjd med. Hade kunnat göra knapparna lite snyggare t ex, men css-styling tar ofta lång tid och tyvärr
+        oftast det som hamnar längst ner på prioriteringslistan.</p>
+
+        <p>Jag känner att jag börjar få lite bättre grepp om symfony nu. Twig, controller och class-filerna är inga problem. Men ibland glömmer man lite i vilka filer man gör vad. Jag satt förgäves och letade efter var jag implementerat
+        flash-meddelanden nånstans för att se så jag inte gjort något fel då min css-kod inte ville fungera. Var säker på att de skulle ligga i antingen app.js eller index.html eller någon sådan fil. Men tillslut visade det sig att det var
+        en vanlig twig-fil det låg i. Förmodligen rörde jag ihop det med toast-meddelande från webapp-kursen. Jag känner också att jag tycker POST och GET metoderna börjar falla mer och mer på plats nu. När jag skapade post-formuläret för 
+        att kunna satsa pengar behövde jag inte ens kolla på min gamla kod, det föll sig helt naturligt hur jag skulle göra, så det känns bra.</p>
+
+        <p>Veckans TIL har kanske inte så mycket med just symfony att göra, det är mer själva problemlösningstankesättet jag känner jag fått förståelse för. Men också att jag lärt mig använda while-loopar på ett användbart sätt.</p>
 
         <hr>
         <h2 id=\"kmom04\">kmom04</h2>
@@ -283,7 +307,31 @@ class __TwigTemplate_650b070136375238094c0adee138600b extends Template
         
         <hr>
         <h2 id=\"kmom03\">kmom03</h2>
-        <p>Här kommer redovisningstexten för detta kursmoment.</p>
+        <p>Denna vecka har vi fått utveckla ett eget kortspel. Som en del i detta skulle vi göra både ett flödesschema och skriva psuedokod. Flödesschemat var relativt enkelt att göra då jag tyckte det
+        kändes ganska logiskt hur man skulle rita upp det. Eftersom jag gjorde det innan jag började skriva koden blev det inte exakt som i slutända men det är väl lite det som är tanken, att man har ett skal att
+        utgå från som man senare kan finslipa ju mer man jobbar med det. Psuedokoden tyckte jag var lite klurigare. Det var inte helt lätt att bestämma vad jag skulle fokusera på, i ett par fall kom jag inte på hur 
+        jag skulle få fram det jag skulle koda i psuedokoden, t ex om spelaren vill stanna eller dra ett nytt kort. Jag valde därför enbart att skriva psuedokod för banken spelrunda. Det kändes mer logisk då jag vet
+        när banken stannar eller drar ett nytt kort. Det finns lite olika sätt att skriva psuedokod på, men jag skriva den som kommentarer man sedan kan ta in i källfilen när man ska koda. Det tycker jag känns som ett
+        anävndbart sätt att använda psuedokoden på och något jag förmodligen kommer använda mig av i framtiden. Jag har väl inte riktigt kommit in i problemlösningstankesättet riktigt ännu utan oftast sätter jag igång och
+        börjar koda direkt. Det blir då ofta att man gör lite här och lite där och sen i slutändan måste ändra en massa, så jag kan absolut se fördelar med att jobba så här.</p>
+
+        <p>Jag valde att göra kortspelet 21. Det var inte så svårt att komma igång och låta spelaren dra kort. Den koden hade jag ju redan från kmom02. Det jag tyckte var svårast var faktiskt hur jag skulle få spelet att se
+        Ess som både 1 och 14. Jag tänkte som vanligt i mer avancerade banor än jag behövde, men kom tillslut fram till att det enklaste vore att spela essen som 14 så länge inte poängen överstiger 21. Efter lite klurande kom
+        jag fram till att detta enklast löstes med en while-loop. Jag är inte jättevan vid att arbeta med while-loopar då jag tenderar att luta mig mot if-satser och for-loopar. Men i detta fallet var det smidigare med en while-loop.
+        Att sen låta datorn spela en runda var inte heller det särskilt svårt. Även här insåg jag att en while-loop också kunde vara på sin plats. Så länge datorns poäng understiger 17 dras ett nytt kort. Jag hade först tänkt
+        att jag skulle göra samtliga extra-krav, för jag tyckte de verkade lagom utmanande. Dessvärre drog jag på mig kraftig förklylning vilket gjorde att jag inte hann med alla. Jag lyckades dock lägga in att man kan satsa pengar
+        och att man spelar tills dess att antingen banken eller spelaren är bankrutt. Jag främst att bara jobba med de klasser vi skapade i kmom02. Men när jag skulle implementera betting-funktionen tänkte jag att det vore smidigt
+        att skapa en Player-klass också. Det blev en ganska liten klass, men hade kunnat utvecklas mer om man gör spelet mer avancerat. Det jag tyckte var absolut svårast var att försöka hålla controller-filerna så små som möjligt.
+        Tycker inte att jag skriver mycket kod där egentligen men en while-loop här och en eller två if-satser där så känns de inte så magra längre. Dock så består koden i controller-filerna mest av kallandet på metoder så det kanske
+        inte är så farligt ändå? Men det är nog den främsta förbättringspotentialen jag ser med mitt arbete. Designen är jag relativt nöjd med. Hade kunnat göra knapparna lite snyggare t ex, men css-styling tar ofta lång tid och tyvärr
+        oftast det som hamnar längst ner på prioriteringslistan.</p>
+
+        <p>Jag känner att jag börjar få lite bättre grepp om symfony nu. Twig, controller och class-filerna är inga problem. Men ibland glömmer man lite i vilka filer man gör vad. Jag satt förgäves och letade efter var jag implementerat
+        flash-meddelanden nånstans för att se så jag inte gjort något fel då min css-kod inte ville fungera. Var säker på att de skulle ligga i antingen app.js eller index.html eller någon sådan fil. Men tillslut visade det sig att det var
+        en vanlig twig-fil det låg i. Förmodligen rörde jag ihop det med toast-meddelande från webapp-kursen. Jag känner också att jag tycker POST och GET metoderna börjar falla mer och mer på plats nu. När jag skapade post-formuläret för 
+        att kunna satsa pengar behövde jag inte ens kolla på min gamla kod, det föll sig helt naturligt hur jag skulle göra, så det känns bra.</p>
+
+        <p>Veckans TIL har kanske inte så mycket med just symfony att göra, det är mer själva problemlösningstankesättet jag känner jag fått förståelse för. Men också att jag lärt mig använda while-loopar på ett användbart sätt.</p>
 
         <hr>
         <h2 id=\"kmom04\">kmom04</h2>
