@@ -46,8 +46,11 @@ class MeControllerGame extends AbstractController
 
         $session->set('cpu', new CardHand());
 
-        $session->set('playerMoney', new Player());
-        $session->set('cpuMoney', new Player());
+        $playerMoney = new Player();
+        $session->set('playerMoney', $playerMoney);
+
+        $cpuMoney = new Player();
+        $session->set('cpuMoney', $cpuMoney);
 
         return $this->redirectToRoute('make-bet');
     }
@@ -76,7 +79,7 @@ class MeControllerGame extends AbstractController
         $cpuMoney = $session->get('cpuMoney');
 
         $data = [
-            "playerMoney" =>  $playerMoney->getMoney(),
+            "playerMoney" => $playerMoney->getMoney(),
             "cpuMoney" => $cpuMoney->getMoney(),
         ];
         return $this->render('bet.html.twig', $data);

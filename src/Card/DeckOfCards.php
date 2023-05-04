@@ -102,7 +102,7 @@ class DeckOfCards
      */
     public function drawSingle()
     {
-        shuffle($this->deck);
+        // shuffle($this->deck);
         if (empty($this->deck)) {
             return new Card("empty");
         }

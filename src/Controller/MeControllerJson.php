@@ -110,7 +110,7 @@ class MeControllerJson
         if ($session->has('drawn') == false) {
             $session->set('drawn', []);
         }
-
+        $deck->shuffleDeck();
         $singleCard = $deck->drawSingle();
         if ($singleCard->suit == "empty") {
             $data = [
@@ -166,6 +166,7 @@ class MeControllerJson
 
         $hand = new CardHand();
         for ($i = 1; $i <= $num; $i++) {
+            $deck->shuffleDeck();
             $singleCard = $deck->drawSingle();
             $hand->Add($singleCard);
             $deck->removeCard();

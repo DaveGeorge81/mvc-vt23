@@ -120,6 +120,7 @@ class MeControllerTwig extends AbstractController
             $session->set('drawn', []);
         }
 
+        $deck->shuffleDeck();
         $singleCard = $deck->drawSingle();
         if ($singleCard->suit == "empty") {
             $this->addFlash(
@@ -162,6 +163,7 @@ class MeControllerTwig extends AbstractController
 
         $hand = new CardHand();
         for ($i = 1; $i <= $num; $i++) {
+            $deck->shuffleDeck();
             $singleCard = $deck->drawSingle();
             $hand->Add($singleCard);
             $deck->removeCard();

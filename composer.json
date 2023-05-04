@@ -104,7 +104,9 @@
             "@phpmd",
             "@phpstan",
             "@csfix"
-        ]
+        ],
+        "phpunit": "XDEBUG_MODE=coverage vendor/bin/phpunit",
+        "phpdoc": "tools/phpdoc/phpdoc"
     },
     "conflict": {
         "symfony/symfony": "*"
@@ -114,5 +116,9 @@
             "allow-contrib": false,
             "require": "6.1.*"
         }
+    },
+    "require-dev": {
+        "php": "^8.1",
+        "phpunit/phpunit": "^10"
     }
 }
