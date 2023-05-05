@@ -122,3 +122,7 @@
 [2023-05-04T23:22:47.838263+00:00] security.DEBUG: Checking for authenticator support. {"firewall_name":"main","authenticators":0} []
 [2023-05-04T23:22:52.647688+00:00] request.INFO: Matched route "many_api". {"route":"many_api","route_parameters":{"_route":"many_api","_controller":"App\\Controller\\MeControllerJson::drawMany"},"request_uri":"http://localhost:8888/api/deck/draw/","method":"POST"} []
 [2023-05-04T23:22:52.649188+00:00] security.DEBUG: Checking for authenticator support. {"firewall_name":"main","authenticators":0} []
+[2023-05-05T00:34:41.332696+00:00] request.INFO: Matched route "home". {"route":"home","route_parameters":{"_route":"home","_controller":"App\\Controller\\MeControllerTwig::home"},"request_uri":"http://localhost:8888/","method":"GET"} []
+[2023-05-05T00:34:41.337335+00:00] security.DEBUG: Checking for authenticator support. {"firewall_name":"main","authenticators":0} []
+[2023-05-05T00:34:43.705349+00:00] request.INFO: Matched route "report". {"route":"report","route_parameters":{"_route":"report","_controller":"App\\Controller\\MeControllerTwig::report"},"request_uri":"http://localhost:8888/report","method":"GET"} []
+[2023-05-05T00:34:43.705849+00:00] security.DEBUG: Checking for authenticator support. {"firewall_name":"main","authenticators":0} []
