@@ -104,7 +104,25 @@
 
         <hr>
         <h2 id="kmom04">kmom04</h2>
-        <p>Här kommer redovisningstexten för detta kursmoment.</p>
+        <p>Den här veckan har fokus legat på enhetstestning. Det kändes inte som att detta var så jättenytt då vi sysslat en del med detta i oopython-kursen. Det var ganska likt sätt man skriver testerna på så det kändes ganska bekant.
+        Phpunit tycker jag var lite tydligare när ett test går fel än när vi gjorde enhetstester i pyhton. Det är ett ganska smidigt sätt att jobba med sin kod, men jag hade lite beskymmer med att få det att fungera i min report-mapp. När jag gjorde
+        som i övningen fast i report-mappen skrevs en hel del av mina filer över, vilket gjorde att ingenting ville fungera. Fick tillslut ladda ner hela report-mappen från stundentservern och börja om igen och installera om allt jag hade i tools-mappen.
+        Lite irrerande, men när allt var på plats igen fungerade det som det skulle.</p>
+
+        <p>Jag tycker nog att jag lyckades ganska bra med min kodtäckning. Fick 98,65% täckning, vilket jag är nöjd med. Att jag inte fick 100% var på grund av en metod med en if-sats ifall kortleken var tom. Jag hade visserligen kunnat göra en loop som
+        tömt kortleken innan jag testade metoden för att få fram båda resultaten, men det kändes som mycket jobb för en såpass liten del att jag lät den vara. En annan sak jag klurade på var hur jag skulle testa att kortleken blandades. Jag kom inte på någon
+        vattentät lösning, men la in att leken skulle blandas i samma test som sorterar leken. Blanda först och sedan sortera. Tycker nog överlag att min kod var väl inom marginalen för testbar. Behövde inte skriva om mycket av koden alls. Det var bara en metod
+        jag valde att ändra på. I metoden drawSingle hade jag tidigare valt att börja med att blanda leken innan kortet drogs. Det fyllde en funktion i kmom02 där man skulle dra ett kort från leken. Här valde jag istället att lyfta ut blandandet av leken utanför
+        metoden och la det istället i controllern. Det gör att det blir lite mer kod i controllern, men koden blir lättare att testa. När jag gjorde detta insåg jag att jag egentligen inte behövde två olika metoder för att dra ett kort (gjorde en ny till tjugoett-spelet
+        där leken inte blandas varje gång man drar kort). Jag hade kunnat effektivisera koden och återanvända en av dessa två metoder nu när jag ändrat den första, men då klockan är mycket och jag gärna vill lämna in innan jag går och lägger mig får det vara så för den
+        här gången. </p>
+
+        <p>Om snygg och ren kod gör koden mer testbar är någon man kan fundera över. På ett sätt är kan man anta att kod som är snygg och ren bör vara skriven på ett sätt som gör den lättare att testa, att det inte finns massa beroenden som kan ställa till det. Men det är
+        egentligen ingen garanti att kod som inte är snygg och ren skulle vara mindre testbar. Det behöver inte finnas beroenden eller en uppbyggnad som sätter käppar i hjulet bara för att koden är "kladdig". Dock får man nog ändå anta att den som lägger ner tid på att skriva
+        snygg och ren kod även tänker på att göra den lätt att testa.</p>
+
+        <p>Veckans TIL blir nog en lite mer ökad förståelse för vad enhetstestning innebär, och att man ska försöka testa rätt saker. 100% kodtäckning behöver inte vara en garanti att man testar allt rätt. Att testkoden ibland kan bli större än själva koden man testar är också
+        något jag lärde mig.</p>
 
         <hr>
         <h2 id="kmom05">kmom05</h2>
