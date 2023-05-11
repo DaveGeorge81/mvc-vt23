@@ -126,7 +126,23 @@
 
         <hr>
         <h2 id="kmom05">kmom05</h2>
-        <p>Här kommer redovisningstexten för detta kursmoment.</p>
+        <p>Den här veckan har handlat om ORM (Object relational mapping), och att vi kopplar en liten databas till vår sida. Övningen för hur man kom igång med Doctrine i Symfony var bra då den gick igenom i princip allt man behövde kunna för att sedan klara av uppgiften för kursmomentet.
+        Det var relativt lätt att komma installera på ett helt färskt symfony-prokjekt. Men när jag istället skulle installera det i report-mappen stötte jag på lite problem. Framför allt var det maker-bundle som inte ville installeras. Composer hävdade att det inte fanns något att installera,
+        medan när jag försökte använda maker för att skapa en entity så protesterades det och påstods att jag inte hade maker installerat. Jag fick in och städa lite i min composer.json innan jag tillslut fick allt på plats. Det kan eventuellt ha att göra med det strul jag hade förra vecka när
+        jag fick återskapa hela report-mappen. Men nu ska förhoppningsvis allt fungera även i fortsättningen. Mikaels genomgång av övningen var även den väldigt bra då det ger lite inblick än att bara läsa sig till funktionaliteten.</p>
+
+        <p>När jag byggde upp själva biblioteks-applikationen tänkte jag att man ska kunna komma åt allting oavsett på vilken sida man befinner sig. Jag valde därför att skapa en side-bar med knappar där man kan växla flik. Jag tänkte först även ha att man skulle kunna ta bort och redigera böcker
+        från side-baren. Men ansåg att det var enklare att lägga de valen i listan där man hittar alla böcker. Men för användarvänlighetens skull så la jag även till dessa funktioner om man väljer att gå in på en specifik bok. En annan tanke jag hade var att man skulle kunna gå mellan böckerna på
+        varje enskild boks sida med hjälp av pilar fram och tillbaka. Det ställde dock till det lite då id-numren följs numeriskt när man tagit bort en bok. Det hade ju självklart gått att lösa på något sätt, men då jag just nu inte kommer ihåg hur och det är relativt begränsat med tid låter jag det
+        istället vara som en idé för framtiden.</p>
+
+        <p>CRUD är ju i sig ingen nyhet, men att jobba med det så här kändes lite annorlunda än vad jag vant mig vid hittills. Jag känner mig ganska bekväm med SQL-kod så det kändes lite ovant. Men det gick ganska snabbt att anpassa sig och även om jag inte alltid var helt säker på vad varje sak
+        innebar så var helheten relativt enkel att förstå. Nu var det ju iofs inga avancerade anrop vi skulle göra, det var väl främst att kunna hitta en bok med hjälp av ISBN, men det fanns ju som tur var en exempel-metod man kunde utgå från som grund. Det är alltid spännande att lära sig att jobba
+        på olika sätt, men jag känner nog ändå att jag hellre jobba med databaser med hjälp av mySQL eller mariadb på det sätt vi gjorde i databaskursen. Känner man sig osäker på SQL-biten är däremot ORM ett bra sätt att jobba på och jag kan absolut se potentialen i det då man kan arbeta mer objektorienterat 
+        på detta sätt. Det är fullt möjligt att mina preferenser kan komma att luta mot ORM i framtiden om jag arbetar med det mer, då jag trots allt föredrar objektorienterad programmering. Om man jämför det med sättet vi jobbar mot ett API i webapp-kursen får jag nog säga att det är relativt likvärdigt.
+        Där hämtar man all data från json, vilket jag egentligen nog tycker verkar krångligare. Men förmodligen handlar det ju även här om att jag är mer van vid det sättet att arbeta.</p>
+
+        <p>Veckans TIL förutom vad ORM är så får det bli hur man använder doctrines manager för att skriva till och läsa från databasen.</p>
 
         <hr>
         <h2 id="kmom06">kmom06</h2>
