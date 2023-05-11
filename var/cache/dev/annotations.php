@@ -66,14 +66,20 @@ return [[
 '[C]App%5CController%5CBooksController%23showAllBooks' => 1,
 'App%5CController%5CBooksController%23showBookById' => 0,
 '[C]App%5CController%5CBooksController%23showBookById' => 1,
+'App%5CController%5CBooksController%23deleteBook' => 0,
+'[C]App%5CController%5CBooksController%23deleteBook' => 1,
 'App%5CController%5CBooksController%23deleteBookById' => 0,
 '[C]App%5CController%5CBooksController%23deleteBookById' => 1,
 'App%5CController%5CBooksController%23updateBook' => 0,
 '[C]App%5CController%5CBooksController%23updateBook' => 1,
+'App%5CController%5CBooksController%23updateBookById' => 0,
+'[C]App%5CController%5CBooksController%23updateBookById' => 1,
 'App%5CController%5CBooksControllerJson' => 0,
 '[C]App%5CController%5CBooksControllerJson' => 1,
 'App%5CController%5CBooksControllerJson%23showAllBooks' => 0,
 '[C]App%5CController%5CBooksControllerJson%23showAllBooks' => 1,
+'App%5CController%5CBooksControllerJson%23showBookByIsbn' => 0,
+'[C]App%5CController%5CBooksControllerJson%23showBookByIsbn' => 1,
 'App%5CController%5CMeControllerGame' => 0,
 '[C]App%5CController%5CMeControllerGame' => 1,
 'App%5CController%5CMeControllerGame%23game' => 0,
@@ -708,6 +714,6 @@ return [[
 ], [
 
 0 => [],
-1 => 1683748004,
+1 => 1683836058,
 
 ]];

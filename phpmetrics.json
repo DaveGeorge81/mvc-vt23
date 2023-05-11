@@ -1,0 +1,20 @@
+{
+    "includes": [
+        "src"
+    ],
+    "exclude": [
+      "test[s]?"
+    ],
+    "report": {
+        "html": "docs/metrics"
+    },
+    "plugins": {
+        "git": {
+            "binary": "git"
+        },
+        "junit": {
+            "file": "docs/junit.xml"
+        }
+    }
+}
+
