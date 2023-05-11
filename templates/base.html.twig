@@ -5,6 +5,7 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        <script src="https://use.fontawesome.com/0aee473986.js"></script>
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
@@ -22,6 +23,7 @@
                 <a href="{{ path('api') }}">Api</a>
                 <a href="{{ path('card') }}">Card</a>
                 <a href="{{ path('game') }}">Game</a>
+                <a href="{{ path('library') }}">Library</a>
                 <a href="{{ path('report') }}">Report</a>
         </nav>
         {% block body %}{% endblock %}

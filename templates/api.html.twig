@@ -38,5 +38,11 @@
     </form><hr>
 
     <h4>Aktuell ställning i kortspelet 21:</h4>
-        <div><a href="{{ path('game_api') }}"><button>Kortspelet 21</button></a></div><hr>
+    <div><a href="{{ path('game_api') }}"><button>Kortspelet 21</button></a></div><hr>
+
+    <h4>Se befintliga böcker i bilblioteket:</h4>
+    <div><a href="{{ path('all_books_api') }}"><button>Library</button></a></div><hr>
+
+    <h4>Visa bok via ISBN:</h4>
+    <div><a href="{{ path('book_by_isbn', {'isbn' : 112233}) }}"><button>Book by ISBN</button></a></div><hr>
 {% endblock %}

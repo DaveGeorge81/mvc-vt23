@@ -1,0 +1,35 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Delete book{% endblock %}
+
+{% block body %}
+    <h1>Delete book<hr></h1>
+    <div class="two-col-layout">
+    <aside class="aside">
+    <div class="cards">
+    <a href="{{ path('library') }}"><button>To landing page</button></a><hr>
+    <a href="{{ path('add_book') }}"><button>Add new book</button></a><hr>
+    <a href="{{ path('books_show_all') }}"><button>Show all books</button></a><hr></div>
+    </aside>
+<main class="main">
+    <form method="post" action="{{ path('book_delete') }}">
+    <fieldset>
+    <legend>Title:</legend>
+    <div><input type="number" name="id" value="{{ book.getid() }}" readonly hidden></div>
+    <div><input type="text" name="title" value="{{ book.getTitle() }}" readonly></div></fieldset>
+    <fieldset>
+    <legend>Author:</legend>
+    <input type="text" name="author" value="{{ book.getAuthor() }}" readonly></fieldset>
+    <fieldset>
+    <legend>ISBN:</legend>
+    <input type="number" name="isbn" value="{{ book.getIsbn() }}" readonly></fieldset>
+    <fieldset>
+    <legend>Cover:</legend>
+    <input type="text" name="cover" value="{{ book.getCover() }}" readonly></fieldset>
+    <div class="cards"><br><input type="submit" name="do_it" value="Delete book"></div>
+    </form><hr>
+</main>
+</div>
+
+
+{% endblock %}

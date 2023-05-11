@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Single book{% endblock %}
+
+{% block body %}
+<h1>Library<hr></h1>
+{{ include('flash.html.twig') }}
+<div class="two-col-layout">
+    <aside class="aside">
+    <div class="cards">
+    <a href="{{ path('library') }}"><button>To landing page</button></a><hr>
+    <a href="{{ path('add_book') }}"><button>Add new book</button></a><hr>
+    <a href="{{ path('books_show_all') }}"><button>Show all books</button></a><hr></div>
+    </aside>
+<main class="main">
+<h1>{{ book.getTitle() }}</h1>
+<h2>Av: {{book.getAuthor() }}</h2>
+<h3>ISBN: {{ book.getIsbn() }}</h3>
+<div class="cards">
+<a href="{{ asset('img/books/'~ book.getCover() ~'.png') }}"><img src="{{ asset('img/books/'~ book.getCover() ~'.png') }}" width="300px"></a>
+<p>Beskrivning: Ingen tillgänglig för tillfället.</p></div><hr>
+<h1><a href="{{ path('update_by_id', {'id' : book.getId()}) }}"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> / <a href="{{ path('delete_by_id', {'id' : book.getId()}) }}"> <i class="fa fa-trash-o" aria-hidden="true"></i></a></h1>
+</main>
+</div>
+
+{% endblock %}

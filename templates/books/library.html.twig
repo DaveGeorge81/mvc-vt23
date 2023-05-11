@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Library{% endblock %}
+
+{% block body %}
+<h1>Library<hr></h1>
+{{ include('flash.html.twig') }}
+<div class="two-col-layout">
+    <aside class="aside">
+    <div class="cards">
+    <a href="{{ path('add_book') }}"><button>Add new book</button></a><hr>
+    <a href="{{ path('books_show_all') }}"><button>Show all books</button></a><hr></div>
+    </aside>
+<main class="main">
+<h2>Välkommen till biblioteket.</h2> <h3>Välj något av alternativen till höger.</h3>
+<h2><img src="{{ asset('img/books/library.jpg') }}" width="700px"></h2>
+</main>
+</div>
+
+{% endblock %}
