@@ -569,6 +569,7 @@ class ComposerStaticInita85b5a1a6cff625cca2ccf93cc1c8f41
         'App\\Controller\\MeControllerGameJson' => __DIR__ . '/../..' . '/src/Controller/MeControllerGameJson.php',
         'App\\Controller\\MeControllerJson' => __DIR__ . '/../..' . '/src/Controller/MeControllerJson.php',
         'App\\Controller\\MeControllerTwig' => __DIR__ . '/../..' . '/src/Controller/MeControllerTwig.php',
+        'App\\Controller\\MetricsController' => __DIR__ . '/../..' . '/src/Controller/MetricsController.php',
         'App\\Entity\\Books' => __DIR__ . '/../..' . '/src/Entity/Books.php',
         'App\\Kernel' => __DIR__ . '/../..' . '/src/Kernel.php',
         'App\\Repository\\BooksRepository' => __DIR__ . '/../..' . '/src/Repository/BooksRepository.php',

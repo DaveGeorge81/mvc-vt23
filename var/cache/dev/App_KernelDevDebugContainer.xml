@@ -342,6 +342,13 @@
     <service id="App\Card\CardHand" class="App\Card\CardHand" autowire="true" autoconfigure="true"/>
     <service id="App\Card\DeckOfCards" class="App\Card\DeckOfCards" autowire="true" autoconfigure="true"/>
     <service id="App\Card\Player" class="App\Card\Player" autowire="true" autoconfigure="true"/>
+    <service id="App\Controller\BetController" class="App\Controller\BetController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.jIxfAsi.App\Controller\BetController"/>
+      </call>
+    </service>
     <service id="App\Controller\BooksController" class="App\Controller\BooksController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -356,6 +363,14 @@
         <argument type="service" id=".service_locator.jIxfAsi.App\Controller\BooksControllerJson"/>
       </call>
     </service>
+    <service id="App\Controller\DrawCard" class="App\Controller\DrawCard" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.jIxfAsi.App\Controller\DrawCard"/>
+      </call>
+    </service>
+    <service id="App\Controller\DrawCardJson" class="App\Controller\DrawCardJson" autowire="true" autoconfigure="true"/>
     <service id="App\Controller\MeControllerGame" class="App\Controller\MeControllerGame" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -378,6 +393,11 @@
       <call method="setContainer">
         <argument type="service" id=".service_locator.jIxfAsi.App\Controller\MetricsController"/>
       </call>
+    </service>
+    <service id="App\Helper\Helper" class="App\Helper\Helper" autowire="true" autoconfigure="true">
+      <argument type="service" id="App\Card\CardHand"/>
+      <argument>0</argument>
+      <argument type="service" id="App\Card\DeckOfCards"/>
     </service>
     <service id="App\Repository\BooksRepository" class="App\Repository\BooksRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
@@ -6013,12 +6033,18 @@
       <argument type="service" id="web_profiler.csp.handler"/>
       <argument type="service" id="data_collector.dump" on-invalid="ignore"/>
     </service>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\BetController" class="App\Controller\BetController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\BetController" class="App\Controller\BetController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\BetController" class="App\Controller\BetController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\BooksController" class="App\Controller\BooksController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\BooksController" class="App\Controller\BooksController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\BooksController" class="App\Controller\BooksController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\BooksControllerJson" class="App\Controller\BooksControllerJson" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\BooksControllerJson" class="App\Controller\BooksControllerJson" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\BooksControllerJson" class="App\Controller\BooksControllerJson" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\DrawCard" class="App\Controller\DrawCard" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\DrawCard" class="App\Controller\DrawCard" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\DrawCard" class="App\Controller\DrawCard" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\MeControllerGame" class="App\Controller\MeControllerGame" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\MeControllerGame" class="App\Controller\MeControllerGame" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\MeControllerGame" class="App\Controller\MeControllerGame" autowire="true" autoconfigure="true" abstract="true"/>
@@ -6919,6 +6945,12 @@
         <argument key="twig" type="service_closure" id="twig" on-invalid="ignore"/>
       </argument>
     </service>
+    <service id=".service_locator.jIxfAsi.App\Controller\BetController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\BetController"/>
+      <argument>App\Controller\BetController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.jIxfAsi" method="withContext"/>
+    </service>
     <service id=".service_locator.jIxfAsi.App\Controller\BooksController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\BooksController"/>
       <argument>App\Controller\BooksController</argument>
@@ -6928,6 +6960,12 @@
     <service id=".service_locator.jIxfAsi.App\Controller\BooksControllerJson" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\BooksControllerJson"/>
       <argument>App\Controller\BooksControllerJson</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.jIxfAsi" method="withContext"/>
+    </service>
+    <service id=".service_locator.jIxfAsi.App\Controller\DrawCard" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\DrawCard"/>
+      <argument>App\Controller\DrawCard</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.jIxfAsi" method="withContext"/>
     </service>

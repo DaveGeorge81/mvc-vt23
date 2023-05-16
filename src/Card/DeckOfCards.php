@@ -79,7 +79,7 @@ class DeckOfCards
     }
 
     /**
-     *@return DeckOfCards
+     *@return array<Card>
      */
     public function shuffleDeck()
     {

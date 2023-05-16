@@ -9,6 +9,7 @@ use App\Card\CardGraphic;
 use App\Card\CardHand;
 use App\Card\DeckOfCards;
 use App\Card\Player;
+use App\Helper\Helper;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -56,46 +57,46 @@ class MeControllerGame extends AbstractController
     }
 
 
-    #[Route("/game/make-bet", name: "make-bet")]
-    public function makeBet(
-        SessionInterface $session
-    ): Response {
-        $done = "no";
-        $session->set('done', $done);
+    // #[Route("/game/make-bet", name: "make-bet")]
+    // public function makeBet(
+    //     SessionInterface $session
+    // ): Response {
+    //     $done = "no";
+    //     $session->set('done', $done);
 
-        $session->set('playerPoints', 0);
-        $session->set('cpuPoints', 0);
-        $session->set('player', new CardHand());
-        $session->set('cpu', new CardHand());
+    //     $session->set('playerPoints', 0);
+    //     $session->set('cpuPoints', 0);
+    //     $session->set('player', new CardHand());
+    //     $session->set('cpu', new CardHand());
 
-        /**
-         * @var Player
-         */
-        $playerMoney = $session->get('playerMoney');
+    //     /**
+    //      * @var Player
+    //      */
+    //     $playerMoney = $session->get('playerMoney');
 
-        /**
-         * @var Player
-         */
-        $cpuMoney = $session->get('cpuMoney');
+    //     /**
+    //      * @var Player
+    //      */
+    //     $cpuMoney = $session->get('cpuMoney');
 
-        $data = [
-            "playerMoney" => $playerMoney->getMoney(),
-            "cpuMoney" => $cpuMoney->getMoney(),
-        ];
-        return $this->render('bet.html.twig', $data);
-    }
+    //     $data = [
+    //         "playerMoney" => $playerMoney->getMoney(),
+    //         "cpuMoney" => $cpuMoney->getMoney(),
+    //     ];
+    //     return $this->render('bet.html.twig', $data);
+    // }
 
 
-    #[Route("/game/bet", name: "bet", methods: ['POST'])]
-    public function bet(
-        Request $request,
-        SessionInterface $session
-    ): Response {
-        $bet = $request->request->get('amount');
-        $session->set('bet', $bet);
+    // #[Route("/game/bet", name: "bet", methods: ['POST'])]
+    // public function bet(
+    //     Request $request,
+    //     SessionInterface $session
+    // ): Response {
+    //     $bet = $request->request->get('amount');
+    //     $session->set('bet', $bet);
 
-        return $this->redirectToRoute('game21');
-    }
+    //     return $this->redirectToRoute('game21');
+    // }
 
 
     #[Route("/game/game21", name: "game21")]
@@ -238,10 +239,10 @@ class MeControllerGame extends AbstractController
          */
         $cpuMoney = $session->get('cpuMoney');
 
-        /**
-         * @var CardHand
-         */
-        $cpuHand = $session->get('cpu');
+        // /**
+        //  * @var CardHand
+        //  */
+        // $cpuHand = $session->get('cpu');
 
         /**
          * @var int
@@ -254,16 +255,13 @@ class MeControllerGame extends AbstractController
             $session->set('game21', $deck);
         }
 
-        while ($session->get('cpuPoints') < 17) {
-            $cpuHand->add($deck->hitCard());
-            $session->set('cpu', $cpuHand);
-            $session->set('game21', $deck);
+        $helper = new Helper();
+        $cpu = $helper->cpuRound($deck);
 
-            $done = "yes";
-            $session->set('done', $done);
-
-            $session->set('cpuPoints', $cpuHand->points());
-        }
+        $session->set('cpu', $cpu->cpuHand);
+        $session->set('game21', $cpu->deck);
+        $session->set('done', $cpu->done);
+        $session->set('cpuPoints', $cpu->cpuPoints);
 
         if ($session->get('playerPoints') > $session->get('cpuPoints') ||($session->get('cpuPoints') > 21)) {
             $playerMoney->addMoney($bet);

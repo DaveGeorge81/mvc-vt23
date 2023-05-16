@@ -17,6 +17,7 @@ return array(
     'App\\Controller\\MeControllerGameJson' => $baseDir . '/src/Controller/MeControllerGameJson.php',
     'App\\Controller\\MeControllerJson' => $baseDir . '/src/Controller/MeControllerJson.php',
     'App\\Controller\\MeControllerTwig' => $baseDir . '/src/Controller/MeControllerTwig.php',
+    'App\\Controller\\MetricsController' => $baseDir . '/src/Controller/MetricsController.php',
     'App\\Entity\\Books' => $baseDir . '/src/Entity/Books.php',
     'App\\Kernel' => $baseDir . '/src/Kernel.php',
     'App\\Repository\\BooksRepository' => $baseDir . '/src/Repository/BooksRepository.php',

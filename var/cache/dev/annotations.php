@@ -136,6 +136,10 @@ return [[
 '[C]App%5CController%5CMeControllerTwig%23drawCard' => 1,
 'App%5CController%5CMeControllerTwig%23drawMany' => 0,
 '[C]App%5CController%5CMeControllerTwig%23drawMany' => 1,
+'App%5CController%5CMetricsController' => 0,
+'[C]App%5CController%5CMetricsController' => 1,
+'App%5CController%5CMetricsController%23home' => 0,
+'[C]App%5CController%5CMetricsController%23home' => 1,
 'App%5CEntity%5CBooks' => 0,
 '[C]App%5CEntity%5CBooks' => 1,
 'App%5CEntity%5CBooks%23getId' => 0,
@@ -714,6 +718,6 @@ return [[
 ], [
 
 0 => [],
-1 => 1683840055,
+1 => 1684260095,
 
 ]];
