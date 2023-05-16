@@ -51,4 +51,5 @@ return [
     'shuffle' => [[], ['_controller' => 'App\\Controller\\MeControllerTwig::shuffleCard'], [], [['text', '/card/deck/shuffle']], [], [], []],
     'draw' => [[], ['_controller' => 'App\\Controller\\MeControllerTwig::drawCard'], [], [['text', '/card/deck/draw']], [], [], []],
     'draw_many' => [['num'], ['_controller' => 'App\\Controller\\MeControllerTwig::drawMany'], ['num' => '\\d+'], [['variable', '/', '\\d+', 'num', true], ['text', '/card/deck/draw']], [], [], []],
+    'metrics' => [[], ['_controller' => 'App\\Controller\\MetricsController::home'], [], [['text', '/metrics']], [], [], []],
 ];

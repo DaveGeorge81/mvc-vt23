@@ -372,6 +372,13 @@
         <argument type="service" id=".service_locator.jIxfAsi.App\Controller\MeControllerTwig"/>
       </call>
     </service>
+    <service id="App\Controller\MetricsController" class="App\Controller\MetricsController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.jIxfAsi.App\Controller\MetricsController"/>
+      </call>
+    </service>
     <service id="App\Repository\BooksRepository" class="App\Repository\BooksRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -6018,6 +6025,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\MeControllerTwig" class="App\Controller\MeControllerTwig" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\MeControllerTwig" class="App\Controller\MeControllerTwig" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\MeControllerTwig" class="App\Controller\MeControllerTwig" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\MetricsController" class="App\Controller\MetricsController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\MetricsController" class="App\Controller\MetricsController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\MetricsController" class="App\Controller\MetricsController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\BooksRepository" class="App\Repository\BooksRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\BooksRepository" class="App\Repository\BooksRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".service_locator.gSv9zYw" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -6930,6 +6940,12 @@
     <service id=".service_locator.jIxfAsi.App\Controller\MeControllerTwig" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\MeControllerTwig"/>
       <argument>App\Controller\MeControllerTwig</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.jIxfAsi" method="withContext"/>
+    </service>
+    <service id=".service_locator.jIxfAsi.App\Controller\MetricsController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\MetricsController"/>
+      <argument>App\Controller\MetricsController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.jIxfAsi" method="withContext"/>
     </service>

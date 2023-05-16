@@ -79,11 +79,12 @@ class DeckOfCards
     }
 
     /**
-     *@return True
+     *@return DeckOfCards
      */
     public function shuffleDeck()
     {
-        return shuffle($this->deck);
+        shuffle($this->deck);
+        return $this->deck;
     }
 
 

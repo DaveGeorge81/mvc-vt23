@@ -46,6 +46,7 @@ return [
         '/card/deck' => [[['_route' => 'deck', '_controller' => 'App\\Controller\\MeControllerTwig::deck'], null, null, null, false, false, null]],
         '/card/deck/shuffle' => [[['_route' => 'shuffle', '_controller' => 'App\\Controller\\MeControllerTwig::shuffleCard'], null, null, null, false, false, null]],
         '/card/deck/draw' => [[['_route' => 'draw', '_controller' => 'App\\Controller\\MeControllerTwig::drawCard'], null, null, null, false, false, null]],
+        '/metrics' => [[['_route' => 'metrics', '_controller' => 'App\\Controller\\MetricsController::home'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'

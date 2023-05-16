@@ -44,7 +44,7 @@ class MeControllerJson
     public function deck(
         SessionInterface $session
     ): Response {
-        if ($session->has('deck') == false) {
+        if ($session->has('deck') === false) {
             $deck = new DeckOfCards();
             $session->set('deck', $deck);
         };
@@ -98,7 +98,7 @@ class MeControllerJson
     public function drawCard(
         SessionInterface $session
     ): Response {
-        if ($session->has('deck') == false) {
+        if ($session->has('deck') === false) {
             $deck = new DeckOfCards();
             $session->set('deck', $deck);
         }
@@ -107,7 +107,7 @@ class MeControllerJson
          */
         $deck = $session->get('deck');
 
-        if ($session->has('drawn') == false) {
+        if ($session->has('drawn') === false) {
             $session->set('drawn', []);
         }
         $deck->shuffleDeck();
@@ -150,7 +150,7 @@ class MeControllerJson
     ): Response {
         $num = $request->request->get('cards');
         // $num = $request->request->get('cards');
-        if ($session->has('deck') == false) {
+        if ($session->has('deck') === false) {
             $deck = new DeckOfCards();
             $session->set('deck', $deck);
         }

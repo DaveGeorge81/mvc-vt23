@@ -1,0 +1,68 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Metrics{% endblock %}
+
+{% block body %}
+    <h1>Metric-Analys<hr></h1>
+    <h2>Introduktion</h2>
+    När vi pratar om kodkvalitet benämner vi dem med de 6 C:en.
+    <h4>Codestyle:</h4>
+    Att hålla god codestyle innebär kort och gott att man följer de allmäna riktlinjer för hur man skriver koden. Exempel på detta är t ex intabbningar, whitespace m.m. Stilen kan skilja mellan språken. I vissa
+    språk använder man t ex cameCase i metoder och i andra bindestreck.
+    <h4>Coverage:</h4>
+    Coverage sammanfattast enklast som hur mycket av den skrivna koden som testas. Man bör sikta på så hög coverage som möjligt genom att testa metoder och if-satser. Låg coverage anses riskabelt då man inte testat möjliga 
+    scenario och då inte kan garantera utgången.
+    <h4>Complexity:</h4>
+    Complexity analyserar hur komplex koden är. Med det menas att man kollar på indentering. Ju större indentering en metod har desto mer komplex är den. Hög komplexitet kan innebära att det blir svårare att
+    underhålla koden då en liten förändring kan påverka stora delar.
+    <h4>Cohesion:</h4>
+    Cohesion, eller snarare "lack of cohesion (LCON)" kan beskrivas som "rätt sak på rätt plats". Ett hög värde här är lika med låg cohesion och då kan det tänkas att man har metoder i en klass som kanske istället hade varit 
+    bättre att ha i en egen klass. Målet är att en klass ska ha ett ansvarsområde.
+    <h4>Coupling:</h4>
+    Coupling är ett sätt att mäta hur mycket en klass påverkar eller påverkas av andra klasser. Man mäter i två olika kategorier AC (Afferent Coupling) är det utgående värdet, alltså hur många andra klasser som påverkas av
+    klassen. Det andra värdert är EC (Efferent Coupling) som är tvärtom. Här mäter man hur många andra klasser som påverkar den specifika klassen. 
+    <h4>CRAP:</h4>
+    CRAP står för Change Risk Analyzer and Predictor och jämför hur complex koden är mot hur många tester man utför. För att få ett lågt CRAP-värde bör man alltså ha fler tester ju mer komplex ens kod är.<hr>
+    <h2>Phpmetrics</h2>
+    <p>När jag analyserar min webbplats med phpmetrics är det komplexiteten som är det första jag reagerar på. Där finner jag tre stora röda cirklar. Gemensamt för dessa är att samtliga är controllerklasser. Den cyklomatiska komplexiteten
+    i dessa tre klasser ligger mellan 9 och 12, vilket är ganska högt. Man ska försöka hålla värdet under 10. Likaså har dessa tre klasser ett relativt låg maintainability index då de varierar mellan ca 62-68. Det tyder på att det skulle
+    kunna vara svårt att underhålla koden i dessa klasser. Man brukar anse att detta värde bör ligga över 70. Som synes i bilden finns det även ett par klasser som är gulmarkerade, även de har ett relativt lågt maintainability index. Den
+    främsta anledningen till detta torde vara att jag har många metoder i de olika klasserna. Men ser man till coheishon så ligger ändå LCON lågt i de flesta klasser så metodena ligger trots detta på "rätt" plats.</p>
+
+    Jag noterar att jag har sex violations. Fyra av dessa är teoretiska buggar med samtliga värden under 1, så de tror jag inte jag kan göra så mycket åt. Finner ingen riktig förklaring på vad det kan vara. De sista två är 
+    Stable Abstractions Principle vialations i Card och Entity. "This package is instable and abstract", jag försökte googla mig till vad det innebar och hur jag i så fall löser det. Jag förstår att mina klasser är abstrakta i och med att 
+    de använder sympfonys abstractController. Men jag lyckades inte klura ut vad som gör dem instabila. Kanske hänger det ihop med att de har så pass låga maintainability index? Dessa saker är de jag främst ser som flaskhalsar i min kod,
+    jag är dock osäker på om jag har möjlighet att förbättra den utan att göra allt för stora omskrivningar.</p>
+    <div class="cards"></a>
+    <a href="{{ asset('img/metrics/phpmetrics2.png') }}"><img src="{{ asset('img/metrics/phpmetrics2.png') }}" width="300px" alt="phpmetrics result 2"></a>
+    <a href="{{ asset('img/metrics/phpmetrics1.png') }}"><img src="{{ asset('img/metrics/phpmetrics1.png') }}" width="300px" alt="phpmetrics result 1"></a></div><hr>
+    <h2>Scrutinizer</h2>
+    <a href="https://scrutinizer-ci.com/g/DaveGeorge81/mvc-vt23/?branch=main">
+    <img src="https://scrutinizer-ci.com/g/DaveGeorge81/mvc-vt23/badges/quality-score.png?b=main"><img src="https://scrutinizer-ci.com/g/DaveGeorge81/mvc-vt23/badges/coverage.png?b=main"><img src="https://scrutinizer-ci.com/g/DaveGeorge81/mvc-vt23/badges/build.png?b=main"></a>
+    <p>Om jag tittar på min webbplats med verktyget Scrutinizer så ser resultatet på 9.94 väldigt bra ut. Där finns 13 issues, men 9 av dem är små bagateller som att jag skrivit "==" istället för "===" i mina if-satser. De sista 4 däremot är i filer där jag själv
+    skrivit koden (autogenererade) som t ex Kernel.php och .php.cs-fixer.dist.php. Den sistnämnda kan ha att göra med att tools-mappen inte laddas till GitHub och jag vet faktiskt inte hur jag ska kunna lösa dem. Alla filer utom en får betyget A vilket jag är väldigt
+    nöjd över. Den sista får B för att där är en metod med 3 if-satser och en while-loop. Förmodligen kan man skriva om denna för att få ner komplexiteten lite. Det är även här jag hittar det högsta CRAP-resultatet på 72. I övrig ligger CRAP-resultatet lågt med de flesta under 10. 
+    De som ligger över 10 är även samma klasser som hade issues med if-satserna, om det hänger ihop återstår väl att se när jag korrigerat dessa issues. Coheision och Coupling-värden kunde jag dessvärre inte få fram i Scrutinizer.</p>
+
+    <p>Om Scrutinizer-poängen var hög så står kodtäckningen i klar kontrast med detta. Endast 16% kan låta väldigt lågt och det är det ju också. Men, då läses mina controller-filer in också vilket jag inte gjort några tester för. Jag har heller inte skrivit några
+    tester för library-delen av sidan så även där saknas kodtäckning. Controller-filerna står för en stor del av den totala koden, vilket gör att om jag inte testar dem kommer jag få nöja mig med en låg kodtäckning. Jag har läst lite om hur man testar controller-klasser.
+    Det verkade fungera lite annorlunda än vanliga enhetstester, får se om jag reder upp dessa tester. Annars får nöja mig med ett lägre resultat i kodtäckning. Tester för book-klasserna ska jag i alla fall göra.</p>
+
+    <div class="cards"></a>
+    <a href="{{ asset('img/metrics/scrutinizer1.png') }}"><img src="{{ asset('img/metrics/scrutinizer1.png') }}" width="300px" alt="scrutinizer result"></a>
+    </div><hr>
+    <h2>Förbrättringar</h2>
+    <p>De förbättringar jag kommer fokusera på är:</p>
+    <Ul>
+    <li>Förbättra min kodtäckning.</li>
+    <li>Försöka få ner CRAP-poängen där CRAP-värdet var som högst.</li>
+    <li>Försöka få ner komplexiteten och maintainability indexet.</li>
+    <li>Fixa de issues jag har möjlighet att lösa.</li>
+    </ul>
+    <p>Anledningen till att jag valde att just fokusera på dessa tre områden är att som jag tolkar analysen har jag en relativt god konstruerad webbplats, men att det krävs mer tester för att öka kodtäckningen. En del klasser ligger lite högt i komplexiteten vilket jag hoppas
+    kunna få ner genom att försöka skriva om koden, eventuellt lyfta ut något i en egen metod. En annan tanke är att göra controllerklasserna mindre. Jag är dock inte säker på att jag kommer lyckas då vissa delar i koden behövs för att uppnå önskat resultat, men jag ska försöka.
+    Slutligen valde jag att försöka korrigera de issues jag har för att de flesta av dem endast var irriterande småsaker vilket kanske kan få min redan höga scrutinzer-poäng ännu lite högre. Jag hoppas samtidgt att dessa förändringar kommer påverka CRAP-resultatet positivt.</p>
+
+
+    <h2>Diskussion</h2>
+{% endblock %}

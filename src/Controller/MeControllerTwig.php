@@ -69,7 +69,7 @@ class MeControllerTwig extends AbstractController
     public function deck(
         SessionInterface $session
     ): Response {
-        if ($session->has('deck') == false) {
+        if ($session->has('deck') === false) {
             $deck = new DeckOfCards();
             $session->set('deck', $deck);
         };
@@ -108,7 +108,7 @@ class MeControllerTwig extends AbstractController
     public function drawCard(
         SessionInterface $session
     ): Response {
-        if ($session->has('deck') == false) {
+        if ($session->has('deck') === false) {
             $deck = new DeckOfCards();
             $session->set('deck', $deck);
         }
@@ -116,7 +116,7 @@ class MeControllerTwig extends AbstractController
          * @var DeckOfCards
          */
         $deck = $session->get('deck');
-        if ($session->has('drawn') == false) {
+        if ($session->has('drawn') === false) {
             $session->set('drawn', []);
         }
 
@@ -148,7 +148,7 @@ class MeControllerTwig extends AbstractController
         SessionInterface $session,
         int $num
     ): Response {
-        if ($session->has('deck') == false) {
+        if ($session->has('deck') === false) {
             $deck = new DeckOfCards();
             $session->set('deck', $deck);
         }
