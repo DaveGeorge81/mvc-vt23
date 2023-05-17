@@ -33,7 +33,7 @@
     Stable Abstractions Principle vialations i Card och Entity. "This package is instable and abstract", jag försökte googla mig till vad det innebar och hur jag i så fall löser det. Jag förstår att mina klasser är abstrakta i och med att 
     de använder sympfonys abstractController. Men jag lyckades inte klura ut vad som gör dem instabila. Kanske hänger det ihop med att de har så pass låga maintainability index? Dessa saker är de jag främst ser som flaskhalsar i min kod,
     jag är dock osäker på om jag har möjlighet att förbättra den utan att göra allt för stora omskrivningar.</p>
-    <div class="cards"></a>
+    <div class="cards">
     <a href="{{ asset('img/metrics/phpmetrics2.png') }}"><img src="{{ asset('img/metrics/phpmetrics2.png') }}" width="300px" alt="phpmetrics result 2"></a>
     <a href="{{ asset('img/metrics/phpmetrics1.png') }}"><img src="{{ asset('img/metrics/phpmetrics1.png') }}" width="300px" alt="phpmetrics result 1"></a></div><hr>
     <h2>Scrutinizer</h2>
@@ -63,6 +63,41 @@
     kunna få ner genom att försöka skriva om koden, eventuellt lyfta ut något i en egen metod. En annan tanke är att göra controllerklasserna mindre. Jag är dock inte säker på att jag kommer lyckas då vissa delar i koden behövs för att uppnå önskat resultat, men jag ska försöka.
     Slutligen valde jag att försöka korrigera de issues jag har för att de flesta av dem endast var irriterande småsaker vilket kanske kan få min redan höga scrutinzer-poäng ännu lite högre. Jag hoppas samtidgt att dessa förändringar kommer påverka CRAP-resultatet positivt.</p>
 
+    <p>Efter att ha genomfört de förbättringar jag föreslog ovan har jag fått ner medelvärdet på den cyklomatiska complexiteten från 4.29 till 3.42. Den relativa systemkomplexibiliteten sjönk även den från 75.08 till 63.08. Detta tack vare att jag delat upp mina controllerklasser
+    till mindre klasser, men också att jag lyft viss kod till en egen metod. Den nya klassen Helper (den lilla röda cirkeln i sista bilden) har dock ett ganska lågt maintainability index, men det beror på att den är beroende av två andra klasser. Om det var bättre att göra på det här sättet än att inte lyfta ut koden ur
+    controllerklassen låter jag vara osagt, men controllerklassen blir åtminstone magrare och det är ju alltid postivt. Som följd av detta fick jag även ner CRAP-värdet lite i den metod där det var som högst. </p>
+
+    <div class="cards">
+    <a href="{{ asset('img/metrics/complexity1.png') }}"><img src="{{ asset('img/metrics/complexity1.png') }}" width="300px" alt="complexity before"></a>
+    <a href="{{ asset('img/metrics/complexity2.png') }}"><img src="{{ asset('img/metrics/complexity2.png') }}" width="300px" alt="complexity after"></a><br>
+    <a href="{{ asset('img/metrics/crap1.png') }}"><img src="{{ asset('img/metrics/crap1.png') }}" width="300px" alt="crap before"></a>
+    <a href="{{ asset('img/metrics/crap2.png') }}"><img src="{{ asset('img/metrics/crap2.png') }}" width="300px" alt="crap after"></a>
+    </div>
+
+    <p>Av de 13 issues jag hade löste jag 10, vilket tillsammans med mina andra åtgärder höjde min scrutinizer-poäng till 9.95.</p>
+    <div class="cards">
+    <a href="{{ asset('img/metrics/issues1.png') }}"><img src="{{ asset('img/metrics/issues1.png') }}" width="300px" alt="issues before"></a>
+    <a href="{{ asset('img/metrics/issues2.png') }}"><img src="{{ asset('img/metrics/issues2.png') }}" width="300px" alt="issues after"></a><br>
+    <a href="{{ asset('img/metrics/phpmetrics3.png') }}"><img src="{{ asset('img/metrics/phpmetrics3.png') }}" width="300px" alt="phpmetrics result 3"></a>
+    </div>
+
+    <p>Något jag däremot inte lyckades förbättra nämnvärt var kodtäckning, jag försökte verkligen testa controllerklasserna, men phpunit protesterade över att det inte var någon KERNEL_CLASS satt (trots att jag följt alla instruktioner), så efter ett par timmars ihärdigt mekande fick jag
+    erkänna mig besegrad. Att testa book-klasserna skulle också visa sig klurigare än vad jag först förväntat mig då det innebar att testa mot databasen. Jag försökte sätta mig in i hur man skulle kunna göra detta, men fick aldrig rätsida på det, så även här fick jag överge dessa tester.
+    Jag testade dock min nya Helper-klass, så jag fick trots allt upp kodtäckningen från 16% till 18%. Inte mycket men alltid något.</p>
+
+    <div class="cards">
+    <a href="{{ asset('img/metrics/scrutinizer2.png') }}"><img src="{{ asset('img/metrics/scrutinizer2.png') }}" width="300px" alt="scrutinizer after"></a>
+    </div><hr>
+
 
     <h2>Diskussion</h2>
+    <p>Så efter att ha gjort denna analys har jag blivit ännu lite klarare över begreppet "clean code". Att ha clean code som ett tankesätt är absolut ett bra sätt att jobba på då det underlättar för utomstående att kunna sätta sig in i din kod. Att tänka i termer som komplexibilitet
+    coheison och CRAP när man kodar är dock lätt att man glömmer bort, framförallt nu så här i början av ens karriär då målet oftast är att få koden att fungera som tänkt. Då blir snarare clean code en sekundär tanke. Däremot tror jag att det är bra att man redan nu i början försöker
+    åtminstone försöker få in delar av clean code-konceptet då det är betydligt enklare att skriva koden med detta i bakhuvudet än att försöka justera den i efterhand. Det största argumentet för clean code torde vara att den är relativt lätt att underhålla och att kod som uppdateras inte 
+    förstör annan kod eftersom man försöker hålla var sak på sin plats. Det främsta som kan ses negativt är att det tar rätt mycket längre tid att klura ut hur koden skrivs på bästa sätt så att mätresultaten blir goda. Men det är väl främst en vanesak kan jag tänka mig. Att ha god
+    kodtäckning däremot är något jag tycker är viktigt. Lite lustigt kan tyckas med tanke på mitt relativt låga resultat på just det området. Men i mitt fall handlar det ju färmst om controller-filerna och sättet testa dem mest går ut på att kolla så att de faktiskt går till rätt sida på
+    webbplatsen gör att jag tycker att det kan vara okej om dessa inte testas.</p>
+
+    <p>Clean code är alltså något att sträva efter, det gör livet som programmerare enklare då det är lättare att reda ut buggar (om det skulle dyka upp någon). Som jag skrev ovan så blir koden mer lättläst vilket gör att man sparar mycket tid vid underhåll då det är lättare att sätta sig in i
+    som utomstående eller om man inte jobbat med koden på ett tag. Jag ser clean code som en stor möjlighet att underlätta t ex grupp-projekt eller låt säga något open-source där många andra kommer läsa koden.</p><hr>
 {% endblock %}
