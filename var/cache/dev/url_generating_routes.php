@@ -88,6 +88,7 @@ return [
     'proj_about' => [[], ['_controller' => 'App\\Controller\\ProjectController::about'], [], [['text', '/proj/about']], [], [], []],
     'proj_api' => [[], ['_controller' => 'App\\Controller\\ProjectController::api'], [], [['text', '/proj/api']], [], [], []],
     'proj_database' => [[], ['_controller' => 'App\\Controller\\ProjectController::doc'], [], [['text', '/proj/about/database']], [], [], []],
+    'proj_features' => [[], ['_controller' => 'App\\Controller\\ProjectController::features'], [], [['text', '/proj/about/features']], [], [], []],
     'search_name' => [[], ['_controller' => 'App\\Controller\\ProjectControllerJson::searchName'], [], [['text', '/proj/api/search/']], [], [], []],
     'api_players' => [[], ['_controller' => 'App\\Controller\\ProjectControllerJson::apiPlayers'], [], [['text', '/proj/api/players']], [], [], []],
     'api_dealer' => [[], ['_controller' => 'App\\Controller\\ProjectControllerJson::apiDealer'], [], [['text', '/proj/api/dealer']], [], [], []],

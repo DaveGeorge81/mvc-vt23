@@ -166,7 +166,7 @@ class DbController extends AbstractController
              * @var Connection $connection
              */
             $connection = $doctrine->getConnection();
-            $file = '../var/backup.sql';
+            $file = '../backup/backup.sql';
             $sql = '
             DROP TABLE IF EXISTS dealer;
             DROP TABLE IF EXISTS player;

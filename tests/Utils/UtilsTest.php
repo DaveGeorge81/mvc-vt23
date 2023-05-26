@@ -7,7 +7,6 @@ use App\Card\Card;
 use App\Card\CardHand;
 use PHPUnit\Framework\TestCase;
 
-
 /**
  * Test cases for class Utils.
  */

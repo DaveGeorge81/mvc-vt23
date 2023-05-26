@@ -14,7 +14,7 @@
 
     {% if finished == "yes" and money < (number_of_hands * 10)%}
     <h3> Game over! Press quit to save your results!</h3>
-    <button>Quit</button>
+    <div class="cards"><a href="{{ path('update_db_by_id', {'id' : 1}) }}"><button class="btn">Quit</button></a></div>
     {% endif %}
 
     <table>
@@ -64,7 +64,7 @@
     <tr>
     <td>Current balance: {{ money }}<br>
     Games played: {{ games_played }}</td>
-    <td>Chance of getting an Ace or face card:<br> 
+    <td>Chance of next card is 10 or higher:<br> 
     <h3>{{ stat }}%</h3><br></td>
     <td>Cards left in deck: {{ left }}</td>
     </tr>

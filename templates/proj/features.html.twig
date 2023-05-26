@@ -1,0 +1,34 @@
+{% extends "/proj/projbase.html.twig" %}
+
+{% block title %}Advanced Features{% endblock %}
+
+{% block body %}
+    <h1>Advanced Features<hr></h1>
+    <p>Jag har funderat över vad som varit de mest avancerade features i detta projekt och det var inte helt lätt att välja ut.
+    Man kan ju tycka att jag tog en väldigt enkel väg med att bara bygga om mitt 21-spel till ett BlackJack, men det visade sig vara
+    bra mycket mer jobb än vad jag föreställde mig. Mycket av tiden la jag på själva bettingsystemet. Jag ville att summan man har tillgänglig
+    skulle fördelas över antalet händer man valt att spela med. Alltså om jag har 100kr och satsar 80kr i den första handen så ska nästa hands
+    maximala insats vara 20kr. Det absolut enklaste hade ju varit att man gör sin insats en hand i taget och då minskar ens totalsumma. Men jag
+    ville att det skulle ske samtidigt för att ge ett lite proffsigare intryck. Det krävdes lite hjälp av JavaScript, och lite testande fram och
+    tillbaka samt lite guidning från intenet fick jag till ett ganska bra resultat som ändrar max-värdet beroende på värdet på de olika inputsen även
+    innan man tryckt på submit.</p>
+
+    <p>Att lägga scriptet rakt i twig-filen var dock inte helt optimalt, men det var enda sättet jag lyckades få in max-värdet då det hämtas från sessionen.</p>
+
+    <p>En annan sak jag tänkte jag skulle implementera var kodräkning, men valde istället en light-variant av detta som visar hur stor procents chans man
+    har att dra ett kort med värdet 10 eller högre. Lösningen bestod av en loop genom kortleken där varje kort med som har värde 10 eller högre läggs i en ny
+    variabel. Sedan divideras den variabeln med antal kort i leken och mulitipliceras sedan med 100 för att få fram procentsatsen.</p>
+
+    <p>När det gällde bankens intelligens så valde jag att följa de vanligaste BlackJack-reglerna. Banken måste spela upp till 17. Det löste jag genom en while-loop,
+    så länge bankens hand har ett värde mindre än 17 måste den dra ett nytt kort. Detta var ett funktion jag redan implementerat i mitt 21-spel, så det var egentligen
+    inget jag reflekterade över.</p>
+
+    <p>Statistik är alltid trevligt så en annan sak jag valde att göra var att med hjälp av databasen föra statistik över olika spelares spelade rundor och hur
+    mycket de vunnit. Jag förde även statiskt över banken, men här valde jag istället att hålla koll på hur många gånger banken vunnit, förlorat eller fått samma
+    resultat som spelaren. Att jag valde att implementera detta som krav 5 var dels för att statistiken annars inte skulle sparas annat än i sessionen. Men samtidigt
+    tyckte jag det var svårt att veta vad jag skulle använda databasen till annars i ett kortspel än just statistik.</p>
+
+
+<img style="margin: auto; display: block" src="{{ asset('img/proj/joker.png') }}" width="600" alt="joker cards">
+
+{% endblock %}

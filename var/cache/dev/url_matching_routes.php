@@ -76,6 +76,7 @@ return [
         '/proj/about' => [[['_route' => 'proj_about', '_controller' => 'App\\Controller\\ProjectController::about'], null, null, null, false, false, null]],
         '/proj/api' => [[['_route' => 'proj_api', '_controller' => 'App\\Controller\\ProjectController::api'], null, null, null, false, false, null]],
         '/proj/about/database' => [[['_route' => 'proj_database', '_controller' => 'App\\Controller\\ProjectController::doc'], null, null, null, false, false, null]],
+        '/proj/about/features' => [[['_route' => 'proj_features', '_controller' => 'App\\Controller\\ProjectController::features'], null, null, null, false, false, null]],
         '/proj/api/search' => [[['_route' => 'search_name', '_controller' => 'App\\Controller\\ProjectControllerJson::searchName'], null, ['POST' => 0], null, true, false, null]],
         '/proj/api/players' => [[['_route' => 'api_players', '_controller' => 'App\\Controller\\ProjectControllerJson::apiPlayers'], null, null, null, false, false, null]],
         '/proj/api/dealer' => [[['_route' => 'api_dealer', '_controller' => 'App\\Controller\\ProjectControllerJson::apiDealer'], null, null, null, false, false, null]],

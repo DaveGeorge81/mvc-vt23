@@ -64,4 +64,10 @@ class ProjectController extends AbstractController
         return $this->render('/proj/database.html.twig');
     }
 
+    #[Route("/proj/about/features", name: "proj_features")]
+    public function features(): Response
+    {
+        return $this->render('/proj/features.html.twig');
+    }
+
 }

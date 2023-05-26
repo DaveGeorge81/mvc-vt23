@@ -116,6 +116,10 @@ class BlackJackDeck
                 $faceCards += 1;
             }
         }
+        if ($totalCards == 0) {
+            $cards = (float)0;
+            return $cards;
+        }
         $cards = round(($faceCards / $totalCards) * 100, 1);
 
         return $cards;

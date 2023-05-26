@@ -25,7 +25,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HitBjController extends AbstractController
 {
-
     #[Route("/proj/hit", name: "bj_hit", methods: ['POST'])]
     public function hit(
         SessionInterface $session,

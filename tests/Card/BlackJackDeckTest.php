@@ -184,7 +184,7 @@ class BlackJackDeckTest extends TestCase
     }
 
     /**
-     * Count Ace and Face cards
+     * Get percentage of cards with value >= 10 in deck
      */
     public function testCountingCards(): void
     {

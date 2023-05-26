@@ -25,7 +25,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class BetBjController extends AbstractController
 {
-
     #[Route("/proj/bet", name: "bj_bet")]
     public function bet(
         SessionInterface $session

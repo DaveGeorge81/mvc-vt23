@@ -25,7 +25,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class BlackJackController extends AbstractController
 {
-
     #[Route("/proj/start", name: "start")]
     public function start(
     ): Response {

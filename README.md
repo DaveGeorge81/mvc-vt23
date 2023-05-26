@@ -25,7 +25,11 @@ $ git clone https://github.com/DaveGeorge81/mvc-vt23.git
 
 4. Press enter to clone.
 
-5. Install the dependencies and the modules for testing.
+5. Move to the mvc-23 folder. Install the dependencies and the modules for testing.
+
+```
+$ cd mvc-23
+```
 
 Dependencies:
 
