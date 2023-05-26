@@ -19,7 +19,7 @@ use Doctrine\DBAL\Connection;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 
-class HejController extends AbstractController
+class DbController extends AbstractController
 {
     // #[Route('/dealer/add', name: 'add_dealer')]
     // public function addDealer(): Response

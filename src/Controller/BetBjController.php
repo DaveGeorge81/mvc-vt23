@@ -107,10 +107,6 @@ class BetBjController extends AbstractController
          */
         $done = $session->get('done');
         /**
-         * @var string
-         */
-        $gameFinished = $session->get('finished');
-        /**
          * @var int
          */
         $gamesPlayed = $session->get('games');
