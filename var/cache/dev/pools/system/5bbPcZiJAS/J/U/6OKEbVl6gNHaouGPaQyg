@@ -1,0 +1,3 @@
+<?php //App%255CController%255CDrawCardJson%2523drawCard
+
+return [PHP_INT_MAX, []];

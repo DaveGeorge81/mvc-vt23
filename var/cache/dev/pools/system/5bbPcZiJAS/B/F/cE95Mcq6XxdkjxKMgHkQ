@@ -1,0 +1,3 @@
+<?php //App%255CController%255CDbController%2523showAllDb
+
+return [PHP_INT_MAX, []];

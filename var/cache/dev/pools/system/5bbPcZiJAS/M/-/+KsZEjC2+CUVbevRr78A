@@ -1,0 +1,3 @@
+<?php //App%255CController%255CBlackJackController%2523setup
+
+return [PHP_INT_MAX, []];

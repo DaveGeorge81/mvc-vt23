@@ -1,0 +1,3 @@
+<?php //App%255CCard%255CCardHand%2523points
+
+return [PHP_INT_MAX, []];
