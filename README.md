@@ -61,7 +61,7 @@ $ composer require --dev symfony/maker-bundle
 Set up the tables
 
 ```
-php bin/console doctrine:schema:update --force
+$ php bin/console doctrine:schema:update --force
 
 ```
 Modules for testing:
@@ -70,7 +70,7 @@ Modules for testing:
 
 ```
 
-composer require friendsofphp/php-cs-fixer --dev
+$ composer require friendsofphp/php-cs-fixer --dev
 
 ```
 
@@ -78,7 +78,7 @@ composer require friendsofphp/php-cs-fixer --dev
 
 ```
 
-composer require phpmd/phpmd --dev
+$ composer require phpmd/phpmd --dev
 
 ```
 
@@ -86,7 +86,7 @@ composer require phpmd/phpmd --dev
 
 ```
 
-composer require phpstan/phpstan --dev
+$ composer require phpstan/phpstan --dev
 
 ```
 
@@ -94,7 +94,7 @@ composer require phpstan/phpstan --dev
 
 ```
 
-composer require phpunit/phpunit --dev
+$ composer require phpunit/phpunit --dev
 
 ```
 
@@ -102,7 +102,7 @@ composer require phpunit/phpunit --dev
 
 ```
 
-composer require phpdocumentor/phpdocumentor --dev
+$ composer require phpdocumentor/phpdocumentor --dev
 
 ```
 
@@ -110,7 +110,7 @@ composer require phpdocumentor/phpdocumentor --dev
 
 ```
 
-composer require phpmetrics/phpmetrics --dev
+$ composer require phpmetrics/phpmetrics --dev
 
 ```
 
