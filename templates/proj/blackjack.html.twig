@@ -1,0 +1,75 @@
+{% extends "/proj/projbase.html.twig" %}
+
+{% block title %}Project{% endblock %}
+
+{% block body %}
+    <h1>BlackJack<hr></h1>
+
+    {% if finished == "yes" and money >= (number_of_hands * 10)%}
+    <h3> Do you want to play another round or quit and save your results?</h3>
+    <div class="cards">
+    <a href="{{ path('set_up') }}"><button class="btn">New Round</button></a>
+    <a href="{{ path('update_db_by_id', {'id' : 1}) }}"><button class="btn">Quit</button></a></div>
+    {% endif %}
+
+    {% if finished == "yes" and money < (number_of_hands * 10)%}
+    <h3> Game over! Press quit to save your results!</h3>
+    <button>Quit</button>
+    {% endif %}
+
+    <table>
+    <th>Dealer</th>
+    <tr><td>
+    {% for card in dealer %}
+        <img src="{{ asset('img/cards/'~ card ~'.svg') }}" width="100px">
+    {% endfor %}
+    </td></tr>
+    <tr><td>{{ dealerHand.blackJackPoints }}</td></tr>
+    </table>
+
+    <h1>Dealer must hit until 17</h1>
+    <div style="display: flex;justify-content: space-around;">
+    {{ include('flash.html.twig') }}
+    </div>
+    <div style="display: flex">
+    {% for hand in hands %}
+        <table>
+        <th>Hand {{ i + 1 }}</th>
+        <tr><td>
+        {% for card in cards[i] %}
+            <img src="{{ asset('img/cards/'~ card ~'.svg') }}" width="100px">
+        {% endfor %}</td></tr>
+        <tr><td>{{ hand.blackJackPoints }}</td></tr>
+        <tr><td>Current bet: {{bets[i]}}</td><tr>
+        {% if (hand.blackJackPoints < 21) and (done[i] == "no") %}
+        <tr><td>
+            <form method="post" action="{{ path('bj_hit') }}">
+            <input type="number" name="hand" value={{ i }} hidden="true">
+            <input type="submit" name="do_it" value="Hit">
+            </form>
+            <form method="post" action="{{ path('bj_stand') }}">
+            <input type="number" name="stand" value={{ i }} hidden="true">
+            <input type="submit" name="do_it" value="Stand">
+            </form></td></tr>
+        {% endif %}
+        {% set i = i +1 %}
+        </table>
+    {% endfor %}
+    </div>
+
+    <table>
+    <th>Player: {{ name }}</th>
+    <th>Statistics:</th>
+    <th>Deck:</th>
+    <tr>
+    <td>Current balance: {{ money }}<br>
+    Games played: {{ games_played }}</td>
+    <td>Chance of getting an Ace or face card:<br> 
+    <h3>{{ stat }}%</h3><br></td>
+    <td>Cards left in deck: {{ left }}</td>
+    </tr>
+    </table>
+
+
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "/proj/projbase.html.twig" %}
+
+{% block title %}Add new dealer{% endblock %}
+
+{% block body %}
+    <h1>Add new dealer<hr></h1>
+<main class="main">
+    <form method="post" action="{{ path('player_create') }}">
+    <fieldset>
+    <legend>Enter name:</legend>
+    <div><input type="text" name="name" value="David"></div></fieldset>
+    <fieldset>
+    <legend>Enter money:</legend>
+    <input type="number" name="money" value="0"></fieldset>
+    <fieldset>
+    <legend>Enter rounds played:</legend>
+    <input type="number" name="rounds" value="0"></fieldset>
+    <div class="cards"><br><input type="submit" name="do_it" value="Add player"></div>
+    </form><hr>
+</main>
+</div>
+
+
+{% endblock %}

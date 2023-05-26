@@ -1,0 +1,18 @@
+{% extends "/proj/projbase.html.twig" %}
+
+{% block title %}Restore Database{% endblock %}
+
+{% block body %}
+    <h1>Restore Database<hr></h1>
+<main class="main">
+    <h2>Do you really want to restore the database? (All records will disappear)</h2>
+    <form method="post" action="{{ path('db_reset') }}">
+    <fieldset>
+    <div><input type="text" name="answer" value="yes" readonly hidden></div>
+    <div class="cards"><br><input type="submit" name="do_it" value="Restore Database"></div>
+    </form>
+</main>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "/proj/projbase.html.twig" %}
+
+{% block title %}About{% endblock %}
+
+{% block body %}
+    <h1>About<hr></h1>
+
+<p>Det här projektet bygger på det välkända kortspelet BlackJack. Det är en vidareutveckling av kortspelet 21 jag
+gjort tidigare under kursen. Den största förändringen här är förutom ändrade regler även att man har möjlighet att spela
+med upp till tre givar samtidigt mot banken. Jag har också valt att spara spelarens resultat i en databas. I databasen
+lagras även statistik om banken, t ex hur många givar den spelat totalt och hur många av dessa den vunnit respektive förlorat.</p>
+
+<p>Projektet är byggt med hjälp av Symfony och databasen med Symfonys Doctrine via ORM och SQLite. Hoppas att ni ska tycka sidan är lika rolig
+att använda som jag tyckte det var att göra den.</p>
+
+<h4>Krav 5</h4>
+Min dokumentation om databasen (krav 5) hittar du <a href="{{ path('proj_database') }}">här</a>.
+
+<img style="margin: auto; display: block" src="{{ asset('img/proj/joker.png') }}" width="600" alt="joker cards">
+
+{% endblock %}

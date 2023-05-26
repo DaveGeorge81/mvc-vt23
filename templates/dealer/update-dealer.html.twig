@@ -1,0 +1,28 @@
+{% extends "/proj/projbase.html.twig" %}
+
+{% block title %}Update dealer{% endblock %}
+
+{% block body %}
+    <h1>Update dealer<hr></h1>
+<main class="main">
+    <form method="post" action="{{ path('dealer_update') }}">
+    <fieldset>
+    <legend>Hands played:</legend>
+    <div><input type="number" name="id" value="{{ dealer.getid() }}" readonly hidden></div>
+    <div><input type="number" name="played" value="{{ db_dealer.getHandsPlayed() }}"></div></fieldset>
+    <fieldset>
+    <legend>Hands won:</legend>
+    <input type="number" name="won" value="{{ db_dealer.getHandsWon() }}"></fieldset>
+    <fieldset>
+    <legend>Hands lost:</legend>
+    <input type="number" name="lost" value="{{ db_dealer.getHandsLost() }}"></fieldset>
+    <fieldset>
+    <legend>Hands push:</legend>
+    <input type="number" name="push" value="{{ db_dealer.getHandsPush() }}"></fieldset>
+    <div class="cards"><br><input type="submit" name="do_it" value="Update dealer"></div>
+    </form><hr>
+</main>
+</div>
+
+
+{% endblock %}

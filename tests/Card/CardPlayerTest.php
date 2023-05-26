@@ -5,17 +5,17 @@ namespace App\Card;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Test cases for class Player.
+ * Test cases for class CardPlayer.
  */
-class PlayerTest extends TestCase
+class CardPlayerTest extends TestCase
 {
     /**
      * Construct object without arguments and check default number of cards.
      */
     public function testCreatePlayerCheckDefaults(): void
     {
-        $player = new Player();
-        $this->assertInstanceOf("\App\Card\Player", $player);
+        $player = new CardPlayer();
+        $this->assertInstanceOf("\App\Card\CardPlayer", $player);
 
         $res = $player->getMoney();
         $exp = 100;
@@ -27,7 +27,7 @@ class PlayerTest extends TestCase
      */
     public function testAddMoney(): void
     {
-        $player = new Player();
+        $player = new CardPlayer();
 
         $player->addMoney(100);
         $res = $player->getMoney();
@@ -40,7 +40,7 @@ class PlayerTest extends TestCase
      */
     public function testSubMoney(): void
     {
-        $player = new Player();
+        $player = new CardPlayer();
 
         $player->subMoney(100);
         $res = $player->getMoney();

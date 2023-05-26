@@ -8,7 +8,7 @@ use App\Card\Card;
 use App\Card\CardGraphic;
 use App\Card\CardHand;
 use App\Card\DeckOfCards;
-use App\Card\Player;
+use App\Card\CardPlayer;
 use App\Helper\Helper;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -47,10 +47,10 @@ class MeControllerGame extends AbstractController
 
         $session->set('cpu', new CardHand());
 
-        $playerMoney = new Player();
+        $playerMoney = new CardPlayer();
         $session->set('playerMoney', $playerMoney);
 
-        $cpuMoney = new Player();
+        $cpuMoney = new CardPlayer();
         $session->set('cpuMoney', $cpuMoney);
 
         return $this->redirectToRoute('make-bet');
@@ -130,12 +130,12 @@ class MeControllerGame extends AbstractController
         $done = $session->get('done');
 
         /**
-         * @var Player
+         * @var CardPlayer
          */
         $playerMoney = $session->get('playerMoney');
 
         /**
-         * @var Player
+         * @var CardPlayer
          */
         $cpuMoney = $session->get('cpuMoney');
 
@@ -163,11 +163,11 @@ class MeControllerGame extends AbstractController
          */
         $deck = $session->get('game21');
         /**
-         * @var Player
+         * @var CardPlayer
          */
         $playerMoney = $session->get('playerMoney');
         /**
-         * @var Player
+         * @var CardPlayer
          */
         $cpuMoney = $session->get('cpuMoney');
 
@@ -231,11 +231,11 @@ class MeControllerGame extends AbstractController
         $deck = $session->get('game21');
 
         /**
-         * @var Player
+         * @var CardPlayer
          */
         $playerMoney = $session->get('playerMoney');
         /**
-         * @var Player
+         * @var CardPlayer
          */
         $cpuMoney = $session->get('cpuMoney');
 

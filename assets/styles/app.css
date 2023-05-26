@@ -70,6 +70,7 @@ table {
     padding: 1em;
     border-collapse: collapse;
     background-color: #adabab;
+    color:#000;
 }
 
 th, td {
@@ -120,4 +121,25 @@ footer {
     margin-bottom: 15px;
     text-align: center;
     border-radius: 20px;
+}
+
+.projnav {
+    background-color: chocolate;
+}
+
+.projbody {
+    background-color: rgb(51, 139, 51);
+    color: #ddd;
+}
+
+.btn {
+    background-color: #ddd;
+    padding: 10px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    margin:10px;
+    width: 200px;
+    height: 60px;
+    
 }

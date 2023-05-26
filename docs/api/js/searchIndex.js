@@ -256,16 +256,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-MeControllerGame.html#method_init"
         },                {
-            "fqsen": "\\App\\Controller\\MeControllerGame\u003A\u003AmakeBet\u0028\u0029",
-            "name": "makeBet",
-            "summary": "",
-            "url": "classes/App-Controller-MeControllerGame.html#method_makeBet"
-        },                {
-            "fqsen": "\\App\\Controller\\MeControllerGame\u003A\u003Abet\u0028\u0029",
-            "name": "bet",
-            "summary": "",
-            "url": "classes/App-Controller-MeControllerGame.html#method_bet"
-        },                {
             "fqsen": "\\App\\Controller\\MeControllerGame\u003A\u003Agame21\u0028\u0029",
             "name": "game21",
             "summary": "",
@@ -316,16 +306,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-MeControllerJson.html#method_shuffleCard"
         },                {
-            "fqsen": "\\App\\Controller\\MeControllerJson\u003A\u003AdrawCard\u0028\u0029",
-            "name": "drawCard",
-            "summary": "",
-            "url": "classes/App-Controller-MeControllerJson.html#method_drawCard"
-        },                {
-            "fqsen": "\\App\\Controller\\MeControllerJson\u003A\u003AdrawMany\u0028\u0029",
-            "name": "drawMany",
-            "summary": "",
-            "url": "classes/App-Controller-MeControllerJson.html#method_drawMany"
-        },                {
             "fqsen": "\\App\\Controller\\MeControllerTwig",
             "name": "MeControllerTwig",
             "summary": "",
@@ -370,16 +350,6 @@ Search.appendIndex(
             "name": "shuffleCard",
             "summary": "",
             "url": "classes/App-Controller-MeControllerTwig.html#method_shuffleCard"
-        },                {
-            "fqsen": "\\App\\Controller\\MeControllerTwig\u003A\u003AdrawCard\u0028\u0029",
-            "name": "drawCard",
-            "summary": "",
-            "url": "classes/App-Controller-MeControllerTwig.html#method_drawCard"
-        },                {
-            "fqsen": "\\App\\Controller\\MeControllerTwig\u003A\u003AdrawMany\u0028\u0029",
-            "name": "drawMany",
-            "summary": "",
-            "url": "classes/App-Controller-MeControllerTwig.html#method_drawMany"
         },                {
             "fqsen": "\\App\\Kernel",
             "name": "Kernel",
@@ -551,6 +521,96 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Repository-BooksRepository.html#method_findOneByIsbn"
         },                {
+            "fqsen": "\\App\\Controller\\BetController",
+            "name": "BetController",
+            "summary": "",
+            "url": "classes/App-Controller-BetController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\BetController\u003A\u003AmakeBet\u0028\u0029",
+            "name": "makeBet",
+            "summary": "",
+            "url": "classes/App-Controller-BetController.html#method_makeBet"
+        },                {
+            "fqsen": "\\App\\Controller\\BetController\u003A\u003Abet\u0028\u0029",
+            "name": "bet",
+            "summary": "",
+            "url": "classes/App-Controller-BetController.html#method_bet"
+        },                {
+            "fqsen": "\\App\\Controller\\DrawCard",
+            "name": "DrawCard",
+            "summary": "",
+            "url": "classes/App-Controller-DrawCard.html"
+        },                {
+            "fqsen": "\\App\\Controller\\DrawCard\u003A\u003AdrawSingleCard\u0028\u0029",
+            "name": "drawSingleCard",
+            "summary": "",
+            "url": "classes/App-Controller-DrawCard.html#method_drawSingleCard"
+        },                {
+            "fqsen": "\\App\\Controller\\DrawCard\u003A\u003AdrawMany\u0028\u0029",
+            "name": "drawMany",
+            "summary": "",
+            "url": "classes/App-Controller-DrawCard.html#method_drawMany"
+        },                {
+            "fqsen": "\\App\\Controller\\DrawCardJson",
+            "name": "DrawCardJson",
+            "summary": "",
+            "url": "classes/App-Controller-DrawCardJson.html"
+        },                {
+            "fqsen": "\\App\\Controller\\DrawCardJson\u003A\u003AdrawCard\u0028\u0029",
+            "name": "drawCard",
+            "summary": "",
+            "url": "classes/App-Controller-DrawCardJson.html#method_drawCard"
+        },                {
+            "fqsen": "\\App\\Controller\\DrawCardJson\u003A\u003AdrawMany\u0028\u0029",
+            "name": "drawMany",
+            "summary": "",
+            "url": "classes/App-Controller-DrawCardJson.html#method_drawMany"
+        },                {
+            "fqsen": "\\App\\Controller\\MetricsController",
+            "name": "MetricsController",
+            "summary": "",
+            "url": "classes/App-Controller-MetricsController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\MetricsController\u003A\u003Ahome\u0028\u0029",
+            "name": "home",
+            "summary": "",
+            "url": "classes/App-Controller-MetricsController.html#method_home"
+        },                {
+            "fqsen": "\\App\\Helper\\Helper",
+            "name": "Helper",
+            "summary": "",
+            "url": "classes/App-Helper-Helper.html"
+        },                {
+            "fqsen": "\\App\\Helper\\Helper\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/App-Helper-Helper.html#method___construct"
+        },                {
+            "fqsen": "\\App\\Helper\\Helper\u003A\u003AcpuRound\u0028\u0029",
+            "name": "cpuRound",
+            "summary": "",
+            "url": "classes/App-Helper-Helper.html#method_cpuRound"
+        },                {
+            "fqsen": "\\App\\Helper\\Helper\u003A\u003A\u0024cpuHand",
+            "name": "cpuHand",
+            "summary": "",
+            "url": "classes/App-Helper-Helper.html#property_cpuHand"
+        },                {
+            "fqsen": "\\App\\Helper\\Helper\u003A\u003A\u0024cpuPoints",
+            "name": "cpuPoints",
+            "summary": "",
+            "url": "classes/App-Helper-Helper.html#property_cpuPoints"
+        },                {
+            "fqsen": "\\App\\Helper\\Helper\u003A\u003A\u0024deck",
+            "name": "deck",
+            "summary": "",
+            "url": "classes/App-Helper-Helper.html#property_deck"
+        },                {
+            "fqsen": "\\App\\Helper\\Helper\u003A\u003A\u0024done",
+            "name": "done",
+            "summary": "",
+            "url": "classes/App-Helper-Helper.html#property_done"
+        },                {
             "fqsen": "\\",
             "name": "\\",
             "summary": "",
@@ -570,6 +630,11 @@ Search.appendIndex(
             "name": "Entity",
             "summary": "",
             "url": "namespaces/app-entity.html"
+        },                {
+            "fqsen": "\\App\\Helper",
+            "name": "Helper",
+            "summary": "",
+            "url": "namespaces/app-helper.html"
         },                {
             "fqsen": "\\App",
             "name": "App",

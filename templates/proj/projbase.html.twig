@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        <script src="https://use.fontawesome.com/0aee473986.js"></script>
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+    <body class="projbody">
+    <header><div class="head"><img src="{{ asset('img/proj/chips.png') }}" width="900" alt="chips"></div></header>
+        <nav class="projnav">
+                <a href="{{ path('project') }}">Start</a>
+                <a href="{{ path('proj_about') }}">About</a>
+                <a href="{{ path('proj_api') }}">API</a>
+                <a href="{{ path('db_show_all') }}">Game Stats</a>
+                <a href="{{ path('db_restore') }}">Restore DB</a>
+                <a href="{{ path('kill_session') }}">Kill Session</a>
+                <a href="{{ path('home') }}">Back to Home</a>
+        </nav>
+        {% block body %}{% endblock %}
+        <footer class="projnav"> <p>Made by David Dahlgren &copy; 2023</p>
+        <a href="https://github.com/DaveGeorge81/mvc-vt23.git"><i style="font-size: 40px" class="fa fa-github-square"></i></a></footer>
+    </body>
+</html>

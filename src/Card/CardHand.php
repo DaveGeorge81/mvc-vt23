@@ -76,15 +76,32 @@ class CardHand
         return $points;
     }
 
-        /**
-     *@return array<string>
-     */
-    public function getNames(): array
+    public function blackJackPoints(): int
     {
-        $values = [];
+        $points = 0;
+        $aces = 0;
         foreach ($this->hand as $card) {
-            $values[] = $card->getName();
+            $points += $card->getValue();
+            if ($card->getName() == 'A') {
+                $aces += 1;
+            }
         }
-        return $values;
+        while (($aces > 0) && ($points > 21)) {
+            $points -= 10;
+            $aces -= 1;
+        }
+        return $points;
     }
+
+    //     /**
+    //  *@return array<string>
+    //  */
+    // public function getNames(): array
+    // {
+    //     $values = [];
+    //     foreach ($this->hand as $card) {
+    //         $values[] = $card->getName();
+    //     }
+    //     return $values;
+    // }
 }

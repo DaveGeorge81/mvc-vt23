@@ -1,0 +1,31 @@
+{% extends "/proj/projbase.html.twig" %}
+
+{% block title %}Update database{% endblock %}
+
+{% block body %}
+    <h1>Update database<hr></h1>
+<main class="main">
+    <form method="post" action="{{ path('db_update') }}">
+    <div><input type="number" name="id" value="{{ dealer.getid() }}" readonly hidden></div>
+
+    <div><input type="number" name="played" value="{{ db_dealer.getHandsPlayed() }}" readonly hidden></div>
+
+    <input type="number" name="won" value="{{ db_dealer.getHandsWon() }}" readonly hidden>
+
+    <input type="number" name="lost" value="{{ db_dealer.getHandsLost() }}" readonly hidden>
+
+    <input type="number" name="push" value="{{ db_dealer.getHandsPush() }}" readonly hidden>
+
+    <div><input type="text" name="name" value="{{ name }}" readonly hidden></div>
+
+    <input type="number" name="money" value="{{ player.getMoney() }}" readonly hidden>
+
+    <input type="number" name="rounds" value="{{ games }}" readonly hidden>
+
+    <div class="cards"><br><input type="submit" class="btn" name="do_it" value="Update Database"></div>
+    </form><hr>
+</main>
+</div>
+
+
+{% endblock %}

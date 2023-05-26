@@ -1,0 +1,31 @@
+{% extends "/proj/projbase.html.twig" %}
+
+{% block title %}All books{% endblock %}
+
+{% block body %}
+<h1>Dealer<hr></h1>
+{{ include('flash.html.twig') }}
+
+    </aside>
+<main class="main">
+<table>
+<th>Hands played:</th>
+<th>Hands won:</th>
+<th>Hands lost:</th>
+<th>Hands push:</th>
+<th>Edit/Delete:</th>
+{% for dealer in dealers %}
+    <tr>
+    <td>{{ dealer.getHandsPlayed() }}</td>
+    <td>{{ dealer.getHandsWon() }}</td>
+    <td>{{ dealer.getHandsLost() }}</td>
+    <td>{{ dealer.getHandsPush() }}</td>
+    <td>{{ dealer.getId() }}</td>
+    {# <td><h2><a href="{{ path('update_by_id', {'id' : book.getId()}) }}"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> / 
+    <a href="{{ path('delete_by_id', {'id' : book.getId()}) }}"> <i class="fa fa-trash-o" aria-hidden="true"></i></a></h2></td> #}
+    </tr>
+    {% endfor %}
+</table><hr>
+</main>
+</div>
+{% endblock %}

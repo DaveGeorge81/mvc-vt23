@@ -1,0 +1,15 @@
+{% extends "/proj/projbase.html.twig" %}
+
+{% block title %}Start{% endblock %}
+
+{% block body %}
+    <h1>BlackJack<hr></h1>
+    <div class="cards">
+    <form method="post" action="{{ path('bj_init') }}">
+    <legend>Enter name:</legend>
+    <input type="text" name="name" required="required" placeholder="Enter your name">
+    <legend>Number of hands:</legend>
+    <input type="number" name="hands" min="1" max="3" value=0><br>
+    <input type="submit" class="btn" name="do_it" value="Start game">
+    </form></div><hr>
+{% endblock %}

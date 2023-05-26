@@ -25,7 +25,7 @@ class HelperTest extends TestCase
      */
     public function testCpuRound(): void
     {
-        $deck = new DeckOfCards;
+        $deck = new DeckOfCards();
         $helper = new Helper();
         $res = $helper->cpuRound($deck);
 

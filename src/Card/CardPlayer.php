@@ -2,7 +2,7 @@
 
 namespace App\Card;
 
-class Player
+class CardPlayer
 {
     /**
      * @var int  players money

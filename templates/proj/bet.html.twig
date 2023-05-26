@@ -1,0 +1,45 @@
+{% extends "/proj/projbase.html.twig" %}
+
+{% block title %}Start{% endblock %}
+
+{% block body %}
+    <h1>BlackJack<hr></h1>
+
+    <h2> Your current balance: {{ money }}</h2>
+
+    <h3>Place your bets (minimun bet is 10)</h3>
+    <div class="cards">
+    <form method="post" action="{{ path('set_bet') }}">
+    {% for hand in hands %}
+        Hand {{ i + 1 }}:
+        <input min="10" id="hand{{ i }}"  name="{{ i }}" step="10" type="number" max={{ money }} value="10" />
+        {% set i = i +1 %}
+    {% endfor %}<br>
+    <input type="submit" class="btn" name="do_it" value="Place bets">
+    </form></div>
+
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script>
+let max = {{ money }};
+let $inputs = $("input:not(:submit)");
+
+function sumInputs($inputs) {
+    let sum = 0;
+
+    $inputs.each(function() {
+    sum += parseInt($(this).val(), 0);
+    });
+
+    return sum;
+}
+
+$inputs.on('input', function(e) {
+    let $this = $(this);
+    let sum = sumInputs($inputs.not(function(i, el) {
+    return el === e.target;
+    }));
+    let value = parseInt($this.val(), 10) || 0;
+    if(sum + value > max) $this.val(max - sum);
+});
+</script>
+{% endblock %}

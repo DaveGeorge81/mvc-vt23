@@ -1,0 +1,51 @@
+{% extends "/proj/projbase.html.twig" %}
+
+{% block title %}Stats{% endblock %}
+
+{% block body %}
+<h1>Game stats<hr></h1>
+{{ include('flash.html.twig') }}
+
+    </aside>
+<main class="main">
+<h2> Dealer (all time) stats </h2>
+<table>
+<th>Hands played:</th>
+<th>Hands won:</th>
+<th>Hands lost:</th>
+<th>Hands push:</th>
+{% for dealer in dealers %}
+    <tr>
+    {% if dealer.getHandsPlayed > 0 %}
+    <td>{{ dealer.getHandsPlayed() }}</td>
+    <td>{{ ((dealer.getHandsWon() / dealer.getHandsPlayed()) * 100)|round(1, 'floor') }} % ({{ dealer.getHandsWon() }} ) </td>
+    <td>{{ ((dealer.getHandsLost() / dealer.getHandsPlayed()) * 100)|round(1, 'floor') }} % ({{ dealer.getHandsLost() }} ) </td>
+    <td>{{ ((dealer.getHandsPush() / dealer.getHandsPlayed()) * 100)|round(1, 'floor') }} % ({{ dealer.getHandsPush() }} )</td>
+    {% else %}
+    <td>{{ dealer.getHandsPlayed() }}</td>
+    <td>{{ dealer.getHandsWon() }} (0%)</td>
+    <td>{{ dealer.getHandsLost() }} (0%)</td>
+    <td>{{ dealer.getHandsPush() }} (0%)</td>
+    {% endif %}
+    </tr>
+    {% endfor %}
+</table><hr>
+
+<h2>Players</h2>
+<table>
+<th>Name:</th>
+<th>Money:</th>
+<th>Rounds played:</th>
+<th>Id:</th>
+{% for player in players %}
+    <tr>
+    <td>{{ player.getName()}}</td>
+    <td>{{ player.getMoney() }}</td>
+    <td>{{ player.getRoundsPlayed() }}</td>
+    <td>{{ player.getId() }}</td>
+    </tr>
+    {% endfor %}
+</table><hr>
+</main>
+</div>
+{% endblock %}

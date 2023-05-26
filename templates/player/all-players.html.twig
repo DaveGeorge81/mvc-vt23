@@ -1,0 +1,29 @@
+{% extends "/proj/projbase.html.twig" %}
+
+{% block title %}All players{% endblock %}
+
+{% block body %}
+<h1>Players<hr></h1>
+{{ include('flash.html.twig') }}
+
+    </aside>
+<main class="main">
+<table>
+<th>Name:</th>
+<th>Money:</th>
+<th>Rounds played:</th>
+<th>Id:</th>
+{% for player in players %}
+    <tr>
+    <td>{{ player.getName()}}</td>
+    <td>{{ player.getMoney() }}</td>
+    <td>{{ player.getRoundsPlayed() }}</td>
+    <td>{{ player.getId() }}</td>
+    {# <td><h2><a href="{{ path('update_by_id', {'id' : book.getId()}) }}"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> / 
+    <a href="{{ path('delete_by_id', {'id' : book.getId()}) }}"> <i class="fa fa-trash-o" aria-hidden="true"></i></a></h2></td> #}
+    </tr>
+    {% endfor %}
+</table><hr>
+</main>
+</div>
+{% endblock %}

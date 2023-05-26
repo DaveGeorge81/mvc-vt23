@@ -1,0 +1,10 @@
+{% extends "/proj/projbase.html.twig" %}
+
+{% block title %}Project{% endblock %}
+
+{% block body %}
+    <h1>Project: BlackJack<hr></h1>
+    <h2>Welcome to play a game of BlackJack</h2>
+    <img style="margin: auto; display: block" src="{{ asset('img/proj/bj.jpg') }}" width="600" alt="blackjack">
+    <div class="cards"><a href="{{ path('start') }}"><button class="btn">Click here to start</button></a></div>
+{% endblock %}

@@ -90,21 +90,41 @@ class CardHandTest extends TestCase
         $this->assertEquals($exp, $res);
     }
 
+    // /**
+    //  * Check name of cards in hand
+    //  */
+    // public function testNameOfCardsInHand(): void
+    // {
+    //     $hand = new CardHand();
+    //     $card1 = new Card("♠", 2, "2");
+    //     $card2 = new Card("♠", 14, "A");
+    //     $card3 = new Card("♠", 13, "K");
+
+    //     $hand->add($card1);
+    //     $hand->add($card2);
+    //     $hand->add($card3);
+    //     $exp = ["2", "A", "K"];
+    //     $res = $hand->getNames();
+
+    //     $this->assertEquals($exp, $res);
+    // }
+
     /**
-     * Check name of cards in hand
+     * Test that Ace is valued 1 if Hand total is
+     * more than 21 in blackjackdeck
      */
-    public function testNameOfCardsInHand(): void
+    public function testAceValuedAsOneInBlackJack(): void
     {
         $hand = new CardHand();
         $card1 = new Card("♠", 2, "2");
-        $card2 = new Card("♠", 14, "A");
-        $card3 = new Card("♠", 13, "K");
+        $card2 = new Card("♠", 11, "A");
+        $card3 = new Card("♠", 10, "K");
 
         $hand->add($card1);
         $hand->add($card2);
         $hand->add($card3);
-        $exp = ["2", "A", "K"];
-        $res = $hand->getNames();
+        $exp = 13;
+        $res = $hand->blackJackPoints();
 
         $this->assertEquals($exp, $res);
     }
