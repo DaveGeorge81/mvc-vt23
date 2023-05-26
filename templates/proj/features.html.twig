@@ -16,7 +16,7 @@
     <p>Att lägga scriptet rakt i twig-filen var dock inte helt optimalt, men det var enda sättet jag lyckades få in max-värdet då det hämtas från sessionen.</p>
 
     <p>En annan sak jag tänkte jag skulle implementera var kodräkning, men valde istället en light-variant av detta som visar hur stor procents chans man
-    har att dra ett kort med värdet 10 eller högre. Lösningen bestod av en loop genom kortleken där varje kort med som har värde 10 eller högre läggs i en ny
+    har att dra ett Ess eller klätt kort. Lösningen bestod av en loop genom kortleken där varje kort med som har värde 10 eller högre (men inte är 10) läggs i en ny
     variabel. Sedan divideras den variabeln med antal kort i leken och mulitipliceras sedan med 100 för att få fram procentsatsen.</p>
 
     <p>När det gällde bankens intelligens så valde jag att följa de vanligaste BlackJack-reglerna. Banken måste spela upp till 17. Det löste jag genom en while-loop,
