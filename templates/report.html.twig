@@ -167,7 +167,40 @@
         <hr>
         <h2 id="kmom10">kmom10</h2>
 
-        <p>Här kommer redovisningstexten för detta kursmoment.</p>
+        <p>Som slutprojekt på kursen valde jag att utveckla ett BlackJackspel. Jag tänkte eftersom det är begränsat med tid att jag valde detta för att kunna bygga vidare på mitt 21-spel jag gjort tidigare. Min första tanke var att det skulle gå väldigt fort. Men det visade sig kräva en hel del arbete ändå.</p>
+
+        <p>Krav 1-3</p>
+        <p>Dessa krav handlade om att bygga själva kortspelet samt att dokumentera och testa repot. Som design på sidan valde jag att frångå mitt tidigare grå-blå färgschema och istället köra på grönt och orange. Jag tyckte dessa färger passade bra i och med det handlar om ett kasino-spel och att dessa oftas spelas på
+        grön filt. Vaöde även att ändra färgen på texten till vit då jag upplevde den lättare att läsa mot den gröna bakgrunden då. Själva kortspelet blev lite av en utmaning då det nu skulle gå att spela flera händer samtidigt, inte så svårt i sig, men när det dessutom skulle gå att satsa pengar per hand fick det
+        mig att klura lite extra. Min första tanke var att ladda varje hand i taget och där välja hur mycket man skulle satsa. Jag tyckte dock inte det såg proffsigt ut så jag valde istället att lösa det med hjälp av javascript som känner av hur mycket man har i varje input på bettingsidan och att de sammanlagda värdena
+        inte överstiger den tillgänglia summan. Utöver detta lånade jag ganska mycket kod från mitt 21-spel, men jag försökte göra den lite smidigare genom att lyfta ut if-satser till metoder vilket gjorde att koden i controller-sidan blev lite mer överskådlig.</p>
+
+        <p>Gällande dokumentationen sjönk min Scrutinizer-poäng lite från 9.95 till 9.88. Det är egentligen inte så mycket med tanke på hur många nya filer jag lagt till och även lite tabeller i databasen. Min kodtäckning blev därför även den lägre och sjönk från 18% till 15%. Jag får fortfarande inte ordning på att testa
+        controller-sidorna eller databasen så det är därför kodtäckningen är så pass låg. Ser man istället till klasserna så är min kodtäckning betydligt bättre där Helper och Utils ligger på 100% och Card ligger på 99.16%. Det är ett resultat jag får anse mig nöjd med. Även Phpmetrics ser helt okej ut. Vissa sidor är fortfarande
+        lite höga i komplexibilitet och maintainability index, men jag vet helt ärligt inte hur jag ska lyckas få ner det utan att plocka bort funktioner ur kortspelet. Min README på github fick sig en rejäl uppdatering med insturktioner om hur man klonar och startar upp projektet.</p>
+
+        <p>Krav 4</p>
+        <p>I krav 4 skulle man skapa ett JSON API med 5 olika JSON routes. Även här fick jag fundera lite, jag ville ju inte bara ta saker rakt av från vad vi gjort i kursen tidigare så jag försökte tänka en extra gång på vad jag skulle visa. Det första jag kom på var att man skulle kunna söka på spelare i poänglistan.
+        Det krävde att jag skapade en ny metod som använde sig av querybuildern. Jag valde även att göra så att man kan söka på början av namn, så om jag t ex söker på "da" får jag upp alla spelare vars namn börjar på "da". När man ändå kunde söka på spelare tänkte jag att det kunde vara trevligt att se alla spelare
+        som fanns i databasen så det blev JSON-route nummer 2. Eftersom jag ändå jobbade med databasen var det även på sin plats att visa statistiken för banken, så helt plötsligt hade jag kommit på tre routes. När jag ändå var inne på statiskt kom jag snabbt på att det kunde vara trevligt att se procentsatsen för att
+        nästa kort i leken skulle vara ett ess eller klätt kort. Nu hade jag bara en sista route kvar och då tyckte jag det kunde vara trevligt att visa de aktuella händernas kort. De två sista routsen krävde ju att det fanns ett spel i sessionen, men jag löste det med hjälp av en if-sats som kollar om det finns något
+        resultat i sessionen, om inte så skapar vi en ny lek och i rout 5 även en hand att visa upp. Att jobba med JSON-routes är oftast inte särskilt avancerat om man redan skrivit koden för att visa upp datan i en twig så det var inte så svårt att implementera desssa.</p>
+
+        <p>Krav 5</p>
+        <p>Detta kraven innebar att jobba mot en databas med hjälp av Doctrines ORM. Det var nog det som jag upplevde som svårast med hela projektet. Bara att komma på vilka tabeller jag skulle ha i databasen gav mig huvudbry. Efter lite funderande kom jag fram till en form av spelarlista kunde vara trevligt. Tabellen
+        skulle alltså hålla koll på spelarens namn, pengar och hur många rundor som spelats. Min första tanke var en form av topp-lista, men jag lyckades inte få till sorteringen i ORM så det fick helt enkelt bli att senaste spelaren läggs till i slutet på listan. I kravet stod det att man skulle ha minst två tabeller och
+        jag hade otroligt svårt att komma på en tabell till som stod i relation till spelar-tabellen. Sen läste jag kravet igen och insåg att det kanske inte var helt tvunget att dessa skulle ha någon relation till varandra. Då kom jag fram till att det kunde vara trevligt att föra statistik över banken, hur många gånger den
+        vunnit, förlorat eller fått samma som spelaren. Jag valde att använda SQLite, då jag inte hunnit sätta mig in i hur man avänder MariaDB ihop med Symfony. Att visa och uppdatera tabellerna sen var inte särskilt svårt, kmom05 lärde oss det ganska grundligt. Vad jag däremot hade väldiga problem med var att återskapa databasen.
+        Om något skulle gå fel när databasen ligger på stundentservern vilket gör att det inte fungerar som tänkt hade det ju varit bra om läraren som rättar kan återställa databsen till ett tillstånd som jag väljer. Bankens tabell är t ex hårdkodad till id 1 (ska inte finnas fler i den tabellen), men om olyckan skulle vara framme
+        och det id'et skulle raderas från databasen faller ju koden. Med hjälp av återställandet av databasen slipper jag oroa mig för det. Finns förmodligen både bättre och snyggare lösningar, men det var det bästa jag kom på för stunden. Att återkapa databasen var inget vi gick igenom, fick lite tips av Mikael och kollade i manualen.
+        Problemet var att det stättet som visades i manualen med att anropa en system process för att köra linux kommandon inte fungerade för att köra filer. Som tur var fick jag hjälp av en kurskamrat, men jag la säkert större delen av en dag för att lösa detta.</p>
+
+        <p>Krav 6</p>
+        Här gällde det att berätta om några avancerade features man lagt in i sitt projekt. Jag var inte helt säker på om den texten skulle skrivas här direkt i rapporten eller i en separat sida under About-fliken. Jag valde i alla fall att lägga den som en som en länk på min About-sida, så här kommer bara en kort sammanfattning.
+        De features jag anser vara lite mer än grundkraven är som ovan nämnt mitt bettingsystem. Där ett javascript håller koll på vad man bettar i de olika händerna. En annan sak jag valde att implemetera var att man kan se hur stor chans man har att nästa kort är klätt eller ess, som en lite enklare variant av korträkning. Utöver
+        detta gjorde jag banken semi-intelligent i och med att den måste spela upp till 17 (vilket jag egentligen inte tycker är någon avancerad feature utan snarare ett grundkrav). Eftersom jag tycker statistik är trevligt så valde jag att använda databasen för att hålla statistik över hur mycket spelarna vunnit och hur bankens vinst, förlust
+        och push-siffror ser ut. Överlag inga jätteavancerade saker, men med tanke på tidsramen är jag ändå nöjd med det jag presterade.</p>
+
         <hr></section>
         </main>
     </div>
